@@ -28,6 +28,7 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     loggedIn: state.loggedIn,
+    fetching: state.fetching,
     fetched: state.fetched
   }
 }
