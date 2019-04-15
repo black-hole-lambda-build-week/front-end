@@ -1,19 +1,21 @@
 ** action folder**
 
-|file Name|Description|
-|---|---|
-|`chact.js`|`index.js`|
-|chact.js is used to fulfill all CRUD operations|index.js holds the user login operations|
+|Folder name|File Name|Description|
+|---|---|---|
+|actions||`chact.js`|chact.js is used to fulfill all CRUD operations|
+|actions||`index.js`|index.js holds the user login operations|
 
 
 ** components folder**
-|file Name|Description|
+|Folder name|File Name|Description|
 |---|---|
-|`dump.js`|`index.js`|
-|chact.js is used to fulfill all CRUD operations|index.js holds the user login operations|
+|DumpContainer|`dump.js`| DumpContainer folders dump.js file allows for you to update any post entry submittion |
+|Home|`index.js`|Home folders index.js file is the main screen that users first see before logging in|
+|Login|`login.js`|Login folders login.js file will conditionally render a login or register form depending on if you've registered or not before|
 
 ** reducer folder**
-|file Name|Description|
+|Folder name|File Name|Description|
 |---|---|
-|`chact.js`|`index.js`|
-|chact.js is used to fulfill all CRUD operations|index.js holds the user login operations|
+|``||
+|``||
+|``||
