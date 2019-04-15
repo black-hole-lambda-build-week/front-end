@@ -1,3 +1,5 @@
+The frontend portion of the BlackHole project is using react to create the project and redux to manage and update the state of the pro
+
 Action folder
 
 |Folder name|File Name|Description|
