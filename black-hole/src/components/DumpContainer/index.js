@@ -2,18 +2,25 @@ import React from 'react'
 import { connect } from 'react-redux';
 import Dump from './Dump'
 import './Dumps.scss'
+import { fetchingData } from '../../actions'
 
-const DumpContainer = props => {
-    return (
-        <div className='DumpContainer'>
-            {props.dumps.map((dump, id) => (
-                <Dump
-                    dump={dump}
-                    key={id}
-                />
-            ))}
-        </div>
-    )
+class DumpContainer extends React.Component {
+    componentDidMount() {
+        this.props.fetchingData();
+    }
+
+    render() {
+        return (
+            <div className='DumpContainer'>
+                {this.props.dumps.map((dump, id) => (
+                    <Dump
+                        dump={dump}
+                        key={id}
+                    />
+                ))}
+            </div>
+        )
+    }
 }
 
 const mapStateToProps = state => {
@@ -22,4 +29,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(DumpContainer)
+export default connect(mapStateToProps, { fetchingData })(DumpContainer)

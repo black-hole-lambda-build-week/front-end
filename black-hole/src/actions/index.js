@@ -21,6 +21,8 @@ export const
     DELETE_NOTE_SUCCESS = 'DELETE_NOTE_SUCCESS',
     DELETE_NOTE_FAILURE = 'DELETE_NOTE_FAILURE';
 
+const URL = 'https://blackhole-app.herokuapp.com';
+
 export const register = creds => dispatch => {
     auth()
         .post('https://blackhole-app.herokuapp.com/register', creds)
