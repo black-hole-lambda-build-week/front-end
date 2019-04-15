@@ -17,3 +17,12 @@
         }
     }
 }
+
+.log {
+    color: whitesmoke;
+
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}
