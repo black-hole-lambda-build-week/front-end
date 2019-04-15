@@ -1,0 +1,28 @@
+.Login {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+
+    form {
+        width: max-content;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: flex-start;
+
+        button {
+            align-self: center;
+        }
+    }
+}
+
+.log {
+    color: whitesmoke;
+
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}
