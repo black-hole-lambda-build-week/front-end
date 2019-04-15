@@ -27,6 +27,7 @@ class Dump extends React.Component {
     };
 
     render() {
+        console.log(this.props)
         return (
             <div className="Note">
                 <button
@@ -40,10 +41,10 @@ class Dump extends React.Component {
                     Edit Entry
         </button>
 
-                <form onSubmit={this.handeUpdate}>
+                <form onSubmit={this.handleUpdate}>
                     <p>
                         Input-Text:
-            {this.sate.editing ? (
+            {this.state.editing ? (
                             <input
                                 type="text"
                                 name="noteInput"
@@ -51,7 +52,7 @@ class Dump extends React.Component {
                                 onChange={this.handleInput}
                             />
                         ) : (
-                                "DISPLAY NOTE HERE"
+                                this.props.dump.message
                             )}
                     </p>
                     <p>
