@@ -1,16 +1,17 @@
-import { LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE, FETCH, FETCHED, LOGOUT } from '../actions';
+import { LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE, FETCH, FETCHED, LOGOUT, TO_HOME } from '../actions';
 
 const initialState = {
     loggingIn: false,
     loggedIn: false,
     fetching: false,
     fetched: false,
+    home: false,
     dumps: [],
+    globalDumps: [],
     user: {}
 }
 
 export default (state = initialState, action) => {
-    console.log(action)
     switch (action.type) {
         case LOGIN:
             return {
@@ -21,7 +22,6 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 loggedIn: true,
-                loggingIn: false,
                 user: JSON.parse(localStorage.getItem('user'))
             }
         case LOGIN_FAILURE:
@@ -40,6 +40,18 @@ export default (state = initialState, action) => {
                 fetched: true,
                 fetching: false,
                 dumps: action.payload
+            }
+        case TO_HOME:
+            if (state.loggedIn) {
+                return {
+                    ...state,
+                    home: true
+                }
+            } else {
+                return {
+                    ...state,
+                    loggingIn: false
+                }
             }
         case LOGOUT:
             return {

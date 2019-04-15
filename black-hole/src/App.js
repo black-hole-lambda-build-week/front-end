@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetch, toLogin, logout } from './actions';
+import { toLogin, logout, toHome } from './actions';
 import './App.scss';
 import DumpContainer from './components/DumpContainer';
 import Login from './components/Login'
+import Home from './components/Home'
 
 class App extends Component {
   render() {
@@ -11,21 +12,22 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <div className='logo' />
+          <div className='logo'
+            onClick={() => this.props.toHome()}
+          />
           <div className='user'>
-            {this.props.loggedIn &&
-              <><span className='log'>{this.props.user.username}</span> | <span className='log'>Log Out</span></>
+            {
+              this.props.loggedIn &&
+              <><span className='log'>{this.props.user.username}</span> | <span className='log' onClick={() => this.props.logout()}>Log Out</span></>
             }
           </div>
         </header>
         <section>
-          {this.props.loggedIn ?
-            this.props.fetched ?
+          {this.props.loggingIn ?
+            this.props.loggedIn ?
               <DumpContainer /> :
-              this.props.fetching ?
-                <h2>Please Wait...</h2> :
-                <h2><button onClick={() => this.props.fetch()}>Click Here</button> to Enter</h2> :
-            <Login />
+              <Login /> :
+            <Home />
           }
         </section>
       </div>
@@ -35,12 +37,12 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    loggingIn: state.loggingIn,
-    loggedIn: state.loggedIn,
-    fetching: state.fetching,
-    fetched: state.fetched,
-    user: state.user
+    loggingIn: state.login.loggingIn,
+    loggedIn: state.login.loggedIn,
+    fetching: state.login.fetching,
+    fetched: state.login.fetched,
+    user: state.login.user
   }
 }
 
-export default connect(mapStateToProps, { fetch, toLogin, logout })(App)
+export default connect(mapStateToProps, { toLogin, logout, toHome })(App)

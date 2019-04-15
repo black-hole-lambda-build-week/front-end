@@ -18,7 +18,7 @@ const DumpContainer = props => {
 
 const mapStateToProps = state => {
     return {
-        dumps: state.dumps
+        dumps: state.note.notes
     }
 }
 

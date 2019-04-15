@@ -1,12 +1,84 @@
-import React from 'react'
-import './Dump.scss'
+import React from "react";
+import { connect } from "react-redux";
+import { updateNote, deleteNote } from "../../../actions";
 
-const Dump = props => {
-    return (
-        <div className='Dump'>
-            {props.dump.content}
-        </div>
-    )
+class Dump extends React.Component {
+    state = {
+        editing: false,
+        updateNote: {
+            noteInput: "",
+            experationDate: ""
+        }
+    };
+
+    handleInput = e => {
+        this.setState({
+            ...this.state,
+            updateNote: {
+                ...this.state.updateNote,
+                [e.target.name]: e.target.value
+            }
+        });
+    };
+
+    handeUpdate = e => {
+        e.preventDefault();
+        this.props.note.updateNote(this.state.noteInput, this.state.experationDate);
+    };
+
+    render() {
+        return (
+            <div className="Note">
+                <button
+                    onClick={() => this.setState({
+                        ...this.state, editing: true
+                    })}
+                    style={{
+                        display: !this.state.editing ? "block" : "none"
+                    }}
+                >
+                    Edit Entry
+        </button>
+
+                <form onSubmit={this.handeUpdate}>
+                    <p>
+                        Input-Text:
+            {this.sate.editing ? (
+                            <input
+                                type="text"
+                                name="noteInput"
+                                value={this.state.updateNote.noteInput}
+                                onChange={this.handleInput}
+                            />
+                        ) : (
+                                "DISPLAY NOTE HERE"
+                            )}
+                    </p>
+                    <p>
+                        Experation Date:{" "}
+                        {this.state.editing ? (
+                            <input
+                                type="date"
+                                name="experationDate"
+                                value={this.state.updateNote.experationDate}
+                                onChange={this.handleInput}
+                            />
+                        ) : (
+                                "DISPLAY EXPERATION DATE HERE"
+                            )}
+                    </p>
+                    <button>Enter</button>
+                    <button onClick={this.deleteNote}>Delete</button>
+                </form>
+            </div>
+        );
+    }
 }
+const mapStateToProps = state => {
+    return state;
+};
 
-export default Dump
+export default connect(
+    mapStateToProps,
+    { updateNote, deleteNote }
+)(Dump);
