@@ -5,7 +5,7 @@ import App from './App';
 import thunk from 'redux-thunk'
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import reducer from './reducers'
+import reducer from './reducers/combo'
 import { LOGIN_SUCCESS } from './actions';
 
 const tokenizer = store => next => action => {
