@@ -15,6 +15,7 @@ components folder
 |Login|`login.js`|Login folders login.js file will conditionally render a login or register form depending on if you've registered or not before|
 
 reducer folder
+
 |Folder name|File Name|Description|
 |---|---|---|
 |reducers|`chred.js`|chred.js contains the switch statements for all CRUD operations that are needed|
