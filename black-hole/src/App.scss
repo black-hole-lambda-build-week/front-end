@@ -1,58 +1,58 @@
 .App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  width: 96%;
-  margin: 1% auto;
-  font-size: 1.5rem;
-
-  header {
-    width: 96%;
-    height: 50px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    z-index: 999999;
-    position: fixed;
+    justify-content: flex-start;
+    width: 96%;
+    margin: 1% auto;
+    font-size: 1.5rem;
 
-    .logo {
-      width: 8%;
+    header {
+        width: 96%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 999999;
+        position: fixed;
 
-      &:hover {
-        cursor: pointer;
-      }
+        .logo {
+            width: 8%;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .user {
+            width: 15%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .log {
+            color: whitesmoke;
+            margin: 0;
+            padding-bottom: 0;
+
+            &:hover {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+        }
+
+        .log-username {
+            word-spacing: 40px;
+        }
+
+        .unlogged {
+            width: 100%;
+        }
     }
 
-    .user {
-      width: 10%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    section {
+        width: 100%;
+        padding: 0 0 25px;
     }
-
-    .log {
-      color: whitesmoke;
-      margin: 0;
-      padding-bottom: 0;
-
-      &:hover {
-        cursor: pointer;
-        text-decoration: underline;
-      }
-    }
-
-    .log-username {
-      word-spacing: 40px;
-    }
-
-    .unlogged {
-      width: 100%;
-    }
-  }
-
-  section {
-    width: 100%;
-    padding: 0 0 25px;
-  }
 }

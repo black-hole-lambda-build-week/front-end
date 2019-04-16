@@ -50,7 +50,10 @@ export const reducer = (state = initialState, action) => {
         case ADD_NOTE_SUCCESS:
             return {
                 ...state,
-                notes: [...state.notes, action.payload],
+                notes: [...state.notes, {
+                    id: action.payload[1],
+                    message: action.payload[0]
+                }],
                 addingNote: false
             };
         case ADD_NOTE_FAILURE:
@@ -83,9 +86,20 @@ export const reducer = (state = initialState, action) => {
                 updatingNote: true
             };
         case UPDATE_NOTE_SUCCESS:
+            const newNotes = state.notes.map(note => {
+                if (note.id === action.payload.id) {
+                    return note = {
+                        ...note,
+                        message: action.payload.message
+                    }
+                } else {
+                    return note
+                }
+            })
+            console.log(newNotes, action.payload)
             return {
                 ...state,
-                notes: action.payload,
+                notes: newNotes,
                 updatingNote: false
             };
         case UPDATE_NOTE_FAILURE:
