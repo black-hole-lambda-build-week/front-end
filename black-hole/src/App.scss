@@ -55,4 +55,15 @@
     width: 100%;
     padding: 0 0 25px;
   }
+
+  .blackhole {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    user-select: none;
+    pointer-events: none;
+    width: 80%;
+  }
 }

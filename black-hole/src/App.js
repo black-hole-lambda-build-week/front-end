@@ -7,42 +7,45 @@ import Login from './components/Login';
 import Home from './components/Home';
 
 import logo from './images/logo_uncolored.png';
+import blackhole from './images/blackhole.mp4';
 
 class App extends Component {
   render() {
     console.log(this.props);
     return (
-      <div className='App'>
-        <header>
-          <img
-            className='logo'
-            src={logo}
-            onClick={() => this.props.toHome()}
-            alt='Logo'
-          />
-          <div className='user'>
-            {this.props.loggedIn && (
-              <>
-                <p className='log-username'>{this.props.user.username} |</p>
-                <span className='log' onClick={() => this.props.logout()}>
-                  Log Out
-                </span>
-              </>
-            )}
-          </div>
-        </header>
-        <section>
-          {this.props.loggingIn ? (
-            this.props.loggedIn ? (
-              <DumpContainer />
-            ) : (
+      <>
+        <div className='App'>
+          <header>
+            <img
+              className='logo'
+              src={logo}
+              onClick={() => this.props.toHome()}
+              alt='Logo'
+            />
+            <div className='user'>
+              {this.props.loggedIn && (
+                <>
+                  <p className='log-username'>{this.props.user.username} |</p>
+                  <span className='log' onClick={() => this.props.logout()}>
+                    Log Out
+                  </span>
+                </>
+              )}
+            </div>
+          </header>
+          <section>
+            {this.props.loggingIn ? (
+              this.props.loggedIn ? (
+                <DumpContainer />
+              ) : (
                 <Login />
               )
-          ) : (
+            ) : (
               <Home />
             )}
-        </section>
-      </div>
+          </section>
+        </div>
+      </>
     );
   }
 }

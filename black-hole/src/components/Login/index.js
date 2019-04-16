@@ -4,7 +4,6 @@ import { login, register } from '../../actions';
 import './Login.scss';
 
 import logo from '../../images/blackhole.png';
-import blackhole from '../../images/blackhole.mp4';
 
 class Login extends Component {
   state = {
