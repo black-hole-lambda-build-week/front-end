@@ -2,11 +2,28 @@ import React from 'react'
 import { connect } from 'react-redux';
 import Dump from './Dump'
 import './Dumps.scss'
-import { fetchingData } from '../../actions'
+import { fetchingData, addNote } from '../../actions'
 
 class DumpContainer extends React.Component {
+    state = {
+        message: '',
+        expiration: ''
+    }
+
     componentDidMount() {
         this.props.fetchingData();
+    }
+
+    handleChanges = e => {
+        this.setState({
+            ...this.state,
+            message: e.target.value
+        })
+    }
+
+    add = e => {
+        e.preventDefault()
+        this.props.addNote(this.state.message)
     }
 
     render() {
@@ -18,6 +35,14 @@ class DumpContainer extends React.Component {
                         key={id}
                     />
                 ))}
+                <form onSubmit={this.add}>
+                    <input
+                        onChange={this.handleChanges}
+                        name='message'
+                        value={this.state.message}
+                        type='text'
+                    />
+                </form>
             </div>
         )
     }
@@ -29,4 +54,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { fetchingData })(DumpContainer)
+export default connect(mapStateToProps, { fetchingData, addNote })(DumpContainer)

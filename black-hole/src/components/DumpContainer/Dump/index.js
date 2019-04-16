@@ -7,7 +7,7 @@ class Dump extends React.Component {
         editing: false,
         updateNote: {
             noteInput: "",
-            experationDate: ""
+            expirationDate: ""
         }
     };
 
@@ -23,8 +23,8 @@ class Dump extends React.Component {
 
     handeUpdate = e => {
         e.preventDefault();
-        this.props.note.updateNote(this.state.noteInput, this.state.experationDate);
-    };
+        this.props.note.updateNote(this.props.dump.id, this.state.updateNote);
+    }
 
     render() {
         console.log(this.props)
@@ -56,21 +56,21 @@ class Dump extends React.Component {
                             )}
                     </p>
                     <p>
-                        Experation Date:{" "}
+                        Expiration Date:{" "}
                         {this.state.editing ? (
                             <input
                                 type="date"
-                                name="experationDate"
-                                value={this.state.updateNote.experationDate}
+                                name="expirationDate"
+                                value={this.state.updateNote.expirationDate}
                                 onChange={this.handleInput}
                             />
                         ) : (
-                                "DISPLAY EXPERATION DATE HERE"
+                                "DISPLAY EXPiRATION DATE HERE"
                             )}
                     </p>
                     <button>Enter</button>
-                    <button onClick={this.deleteNote}>Delete</button>
                 </form>
+                <button onClick={() => this.props.deleteNote(this.props.dump.id)}>Delete</button>
             </div>
         );
     }
