@@ -7,14 +7,13 @@
     margin: 1% auto;
     font-size: 1.5rem;
 
-    header {
+    nav {
         width: 96%;
         height: 50px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         z-index: 999999;
-        position: fixed;
 
         .logo {
             width: 8%;
