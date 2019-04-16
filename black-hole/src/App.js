@@ -43,11 +43,11 @@ class App extends Component {
             this.props.loggedIn ? (
               <DumpContainer />
             ) : (
-              <Login />
-            )
+                <Login />
+              )
           ) : (
-            <Home />
-          )}
+              <Home />
+            )}
         </section>
       </div>
     );
@@ -60,7 +60,8 @@ const mapStateToProps = state => {
     loggedIn: state.login.loggedIn,
     fetching: state.login.fetching,
     fetched: state.login.fetched,
-    user: state.login.user
+    user: state.login.user,
+    route: state.login.route
   };
 };
 
