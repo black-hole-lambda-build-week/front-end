@@ -1,10 +1,8 @@
-import { LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE, FETCH, FETCHED, LOGOUT, TO_HOME } from '../actions';
+import { LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT, TO_HOME } from '../actions';
 
 const initialState = {
     loggingIn: false,
     loggedIn: false,
-    fetching: false,
-    fetched: false,
     home: false,
     dumps: [],
     globalDumps: [],
@@ -28,18 +26,6 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 loggingIn: false
-            }
-        case FETCH:
-            return {
-                ...state,
-                fetching: true
-            }
-        case FETCHED:
-            return {
-                ...state,
-                fetched: true,
-                fetching: false,
-                dumps: action.payload
             }
         case TO_HOME:
             if (state.loggedIn) {

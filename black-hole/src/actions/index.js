@@ -5,8 +5,6 @@ export const
     REGISTER = 'REGISTER',
     LOGIN_SUCCESS = 'LOGIN_SUCCESS',
     LOGIN_FAILURE = 'LOGIN_FAILURE',
-    FETCH = 'FETCH',
-    FETCHED = 'FETCHED',
     LOGOUT = 'LOGOUT',
     FETCH_DATA_START = 'FETCH_DATA_START',
     FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS',
@@ -80,8 +78,8 @@ export const fetchingData = () => dispatch => {
         .catch(err => {
             console.log(err);
             dispatch({ type: FETCH_DATA_FAILURE, payload: err.data });
-        });
-};
+        })
+}
 
 export const addNote = note => dispatch => {
     dispatch({ type: ADD_NOTE_START });
@@ -89,18 +87,21 @@ export const addNote = note => dispatch => {
         .post(`${URL}/orbit`, note) //make sure this link gets filled in
         .then(res => {
             console.log(res);
-            dispatch({ type: ADD_NOTE_SUCCESS, payload: res.data });
+            dispatch({
+                type: ADD_NOTE_SUCCESS,
+                payload: res.data
+            });
         })
         .catch(err => {
             console.log(err);
             dispatch({ type: ADD_NOTE_FAILURE, payload: err.data });
-        });
-};
+        })
+}
 
 export const updateNote = (id, note) => dispatch => {
     dispatch({ type: UPDATE_NOTE_START });
     return auth()
-        .put(`${URL}/${id}`, note) //make sure this link gets filled in
+        .put(`${URL}/orbit/${id}`, note) //make sure this link gets filled in
         .then(res => {
             console.log(res);
             dispatch({ type: UPDATE_NOTE_SUCCESS, payload: res.data });
@@ -108,19 +109,26 @@ export const updateNote = (id, note) => dispatch => {
         .catch(err => {
             console.log(err);
             dispatch({ type: UPDATE_NOTE_FAILURE, payload: err.data });
-        });
-};
+        })
+}
 
 export const deleteNote = id => dispatch => {
     dispatch({ type: DELETE_NOTE_START });
+    console.log(id)
     return auth()
-        .delete(`${URL}/${id}`) //make sure this link gets filled in
+        .delete(`${URL}/orbit/${id}`) //make sure this link gets filled in
         .then(res => {
             console.log(res);
-            dispatch({ type: DELETE_NOTE_SUCCESS, payload: res.data });
+            dispatch({
+                type: DELETE_NOTE_SUCCESS,
+                payload: id
+            });
         })
         .catch(err => {
             console.log(err);
-            dispatch({ type: DELETE_NOTE_FAILURE, payload: err.data });
-        });
-};
+            dispatch({
+                type: DELETE_NOTE_FAILURE,
+                payload: err.data
+            });
+        })
+}

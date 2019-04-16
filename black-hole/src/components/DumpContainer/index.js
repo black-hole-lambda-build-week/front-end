@@ -1,16 +1,17 @@
-import React from 'react';
+import React from 'react'
 import { connect } from 'react-redux';
-import Dump from './Dump';
-import './Dumps.scss';
-import { fetchingData } from '../../actions';
+import Dump from './Dump'
+import './Dumps.scss'
+import { fetchingData, addNote } from '../../actions'
 
 import bg from '../../images/bg2.jpg';
 
 class DumpContainer extends React.Component {
-  componentDidMount() {
-    this.props.fetchingData();
-  }
+    state = {
+        message: ''
+    }
 
+<<<<<<< HEAD
   render() {
     return (
       <>
@@ -24,15 +25,50 @@ class DumpContainer extends React.Component {
       </>
     );
   }
+=======
+    componentDidMount() {
+        this.props.fetchingData();
+    }
+
+    handleChanges = e => {
+        this.setState({
+            ...this.state,
+            message: e.target.value
+        })
+    }
+
+    add = e => {
+        e.preventDefault()
+        this.props.addNote(this.state)
+    }
+
+    render() {
+        return (
+            <div className='DumpContainer'>
+                {this.props.dumps.map((dump, id) => (
+                    <Dump
+                        dump={dump}
+                        key={id}
+                    />
+                ))}
+                <form onSubmit={this.add}>
+                    <input
+                        onChange={this.handleChanges}
+                        name='message'
+                        value={this.state.message}
+                        type='text'
+                    />
+                </form>
+            </div>
+        )
+    }
+>>>>>>> d8a207a2d4dfc291c4f08b2aaa7f8a53680d11bf
 }
 
 const mapStateToProps = state => {
-  return {
-    dumps: state.note.notes
-  };
-};
+    return {
+        dumps: state.note.notes
+    }
+}
 
-export default connect(
-  mapStateToProps,
-  { fetchingData }
-)(DumpContainer);
+export default connect(mapStateToProps, { fetchingData, addNote })(DumpContainer)
