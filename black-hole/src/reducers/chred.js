@@ -86,11 +86,20 @@ export const reducer = (state = initialState, action) => {
                 updatingNote: true
             };
         case UPDATE_NOTE_SUCCESS:
-            const update = state.notes[state.notes.indexOf(action.payload[0])];
-            console.log(update, action.payload)
+            const newNotes = state.notes.map(note => {
+                if (note.id === action.payload.id) {
+                    return note = {
+                        ...note,
+                        message: action.payload.message,
+                    }
+                } else {
+                    return note
+                }
+            })
+            console.log(newNotes, action.payload)
             return {
                 ...state,
-                notes: update,
+                notes: newNotes,
                 updatingNote: false
             };
         case UPDATE_NOTE_FAILURE:

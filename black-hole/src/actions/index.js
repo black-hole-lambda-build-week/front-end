@@ -108,10 +108,7 @@ export const updateNote = (id, note) => dispatch => {
             console.log('update', res);
             dispatch({
                 type: UPDATE_NOTE_SUCCESS,
-                payload: {
-                    id: res.data[0],
-                    message: res.data[1]
-                }
+                payload: res.data
             });
         })
         .catch(err => {

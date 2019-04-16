@@ -3,12 +3,15 @@ import { connect } from 'react-redux';
 import { updateNote, deleteNote } from '../../../actions';
 
 class Dump extends React.Component {
-    state = {
-        editing: false,
-        updateNote: {
-            message: ''
-        }
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            editing: false,
+            updateNote: {
+                message: ''
+            }
+        };
+    }
 
     handleInput = e => {
         this.setState({
@@ -27,8 +30,15 @@ class Dump extends React.Component {
 
     handleUpdate = e => {
         e.preventDefault();
-        console.log(this.state.updateNote)
         this.props.updateNote(this.props.dump.id, this.state.updateNote);
+        this.setState({
+            ...this.state,
+            editing: false,
+            updateNote: {
+                ...this.state.updateNote,
+                message: ''
+            }
+        })
     };
 
     render() {
