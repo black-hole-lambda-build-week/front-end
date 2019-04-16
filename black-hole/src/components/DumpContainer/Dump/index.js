@@ -3,6 +3,15 @@ import { connect } from 'react-redux';
 import { updateNote, deleteNote } from '../../../actions';
 
 class Dump extends React.Component {
+<<<<<<< HEAD
+    state = {
+        editing: false,
+        updateNote: {
+            noteInput: "",
+            expirationDate: ""
+        }
+    };
+=======
   state = {
     editing: false,
     updateNote: {
@@ -10,6 +19,7 @@ class Dump extends React.Component {
       experationDate: ''
     }
   };
+>>>>>>> a8c51191457a3185c6df5a1f20a4b87268d5d910
 
   handleInput = e => {
     this.setState({
@@ -21,10 +31,17 @@ class Dump extends React.Component {
     });
   };
 
+<<<<<<< HEAD
+    handeUpdate = e => {
+        e.preventDefault();
+        this.props.note.updateNote(this.props.dump.id, this.state.updateNote);
+    }
+=======
   handeUpdate = e => {
     e.preventDefault();
     this.props.note.updateNote(this.state.noteInput, this.state.experationDate);
   };
+>>>>>>> a8c51191457a3185c6df5a1f20a4b87268d5d910
 
   render() {
     console.log(this.props);
@@ -48,6 +65,37 @@ class Dump extends React.Component {
           <p className='message'>
             Input-Text:
             {this.state.editing ? (
+<<<<<<< HEAD
+                            <input
+                                type="text"
+                                name="noteInput"
+                                value={this.state.updateNote.noteInput}
+                                onChange={this.handleInput}
+                            />
+                        ) : (
+                                this.props.dump.message
+                            )}
+                    </p>
+                    <p>
+                        Expiration Date:{" "}
+                        {this.state.editing ? (
+                            <input
+                                type="date"
+                                name="expirationDate"
+                                value={this.state.updateNote.expirationDate}
+                                onChange={this.handleInput}
+                            />
+                        ) : (
+                                "DISPLAY EXPiRATION DATE HERE"
+                            )}
+                    </p>
+                    <button>Enter</button>
+                </form>
+                <button onClick={() => this.props.deleteNote(this.props.dump.id)}>Delete</button>
+            </div>
+        );
+    }
+=======
               <input
                 type='text'
                 name='noteInput'
@@ -77,6 +125,7 @@ class Dump extends React.Component {
       </div>
     );
   }
+>>>>>>> a8c51191457a3185c6df5a1f20a4b87268d5d910
 }
 const mapStateToProps = state => {
   return state;
