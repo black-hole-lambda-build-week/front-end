@@ -90,7 +90,7 @@ export const reducer = (state = initialState, action) => {
                 if (note.id === action.payload.id) {
                     return note = {
                         ...note,
-                        message: action.payload.message,
+                        message: action.payload.message
                     }
                 } else {
                     return note

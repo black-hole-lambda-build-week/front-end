@@ -25,8 +25,8 @@ class Dump extends React.Component {
 
     deleteNote = e => {
         e.preventDefault();
-        this.props.deleteNote(this.props.dump.id)
-    }
+        this.props.deleteNote(this.props.dump.id);
+    };
 
     handleUpdate = e => {
         e.preventDefault();
@@ -87,7 +87,7 @@ class Dump extends React.Component {
                     <button>Enter</button>
                     <button onClick={this.deleteNote}>Delete</button>
                 </form>
-            </div>
+            </div >
         );
     }
 }
