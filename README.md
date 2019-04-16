@@ -9,8 +9,7 @@
 
 |Folder name|File Name|Description|
 |---|---|---|
-|actions|`chact.js`|chact.js is used to fulfill all CRUD operations|
-|actions|`index.js`|index.js holds the user login operations|
+|actions|`index.js`|index.js holds the user login operations along with all other CRUD operations|
 
 
 ## Components folder
