@@ -46,7 +46,6 @@ class Dump extends React.Component {
 
         <form onSubmit={this.handleUpdate}>
           <p className='message'>
-            Input-Text:
             {this.state.editing ? (
               <input
                 type='text'

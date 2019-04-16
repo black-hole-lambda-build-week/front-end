@@ -2,7 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2%;
+  position: relative;
+  z-index: 500;
+  margin-top: 5%;
 
   .dump-header {
     color: white;
@@ -11,6 +13,7 @@
     margin: 0;
     margin-left: 10%;
     align-self: flex-start;
+    letter-spacing: 2px;
   }
 
   .note {
@@ -31,7 +34,7 @@
   .message {
     padding: 0 2%;
     color: white;
-    height: 4vh;
+    height: 2.5em;
     overflow: hidden;
   }
 
@@ -42,4 +45,15 @@
     margin-bottom: 0;
     margin-right: 2%;
   }
+}
+
+.background {
+  position: absolute;
+  mix-blend-mode: screen;
+  position: fixed;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
 }

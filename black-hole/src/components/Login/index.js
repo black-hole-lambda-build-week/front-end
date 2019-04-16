@@ -4,6 +4,7 @@ import { login, register } from '../../actions';
 import './Login.scss';
 
 import logo from '../../images/blackhole.png';
+import blackhole from '../../images/blackhole.mp4';
 
 class Login extends Component {
   state = {
@@ -45,62 +46,68 @@ class Login extends Component {
   render() {
     if (this.state.registered) {
       return (
-        <div className='Login'>
-          <img src={logo} alt='logo' className='logo' />
-          <h2>Log In</h2>
-          <form onSubmit={this.login}>
-            <label>Username:</label>
-            <input
-              name='username'
-              value={this.state.username}
-              onChange={this.handleChanges}
-              type='text'
-            />
-            <label>Password:</label>
-            <input
-              name='password'
-              value={this.state.password}
-              onChange={this.handleChanges}
-              type='password'
-            />
-            <button>Submit</button>
-          </form>
-          <span
-            className='log'
-            onClick={() => this.setState({ ...this.state, registered: false })}
-          >
-            Not a Member Yet?
-          </span>
-        </div>
+        <>
+          <div className='Login'>
+            <img src={logo} alt='logo' className='logo' />
+            <h2>Log In</h2>
+            <form onSubmit={this.login}>
+              <label>Username:</label>
+              <input
+                name='username'
+                value={this.state.username}
+                onChange={this.handleChanges}
+                type='text'
+              />
+              <label>Password:</label>
+              <input
+                name='password'
+                value={this.state.password}
+                onChange={this.handleChanges}
+                type='password'
+              />
+              <button>Submit</button>
+            </form>
+            <span
+              className='log'
+              onClick={() =>
+                this.setState({ ...this.state, registered: false })
+              }
+            >
+              Not a Member Yet?
+            </span>
+          </div>
+        </>
       );
     } else {
       return (
-        <div className='Login'>
-          <h2>Register</h2>
-          <form onSubmit={this.register}>
-            <label>Username:</label>
-            <input
-              name='username'
-              value={this.state.username}
-              onChange={this.handleChanges}
-              type='text'
-            />
-            <label>Password:</label>
-            <input
-              name='password'
-              value={this.state.password}
-              onChange={this.handleChanges}
-              type='password'
-            />
-            <button>Submit</button>
-          </form>
-          <span
-            className='log'
-            onClick={() => this.setState({ ...this.state, registered: true })}
-          >
-            Already Signed Up?
-          </span>
-        </div>
+        <>
+          <div className='Login'>
+            <h2>Register</h2>
+            <form onSubmit={this.register}>
+              <label>Username:</label>
+              <input
+                name='username'
+                value={this.state.username}
+                onChange={this.handleChanges}
+                type='text'
+              />
+              <label>Password:</label>
+              <input
+                name='password'
+                value={this.state.password}
+                onChange={this.handleChanges}
+                type='password'
+              />
+              <button>Submit</button>
+            </form>
+            <span
+              className='log'
+              onClick={() => this.setState({ ...this.state, registered: true })}
+            >
+              Already Signed Up?
+            </span>
+          </div>
+        </>
       );
     }
   }

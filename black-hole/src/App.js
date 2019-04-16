@@ -22,7 +22,7 @@ class App extends Component {
           <div className='user'>
             {this.props.loggedIn && (
               <>
-                <span className='log'>{this.props.user.username}</span> |{' '}
+                <p className='log-username'>{this.props.user.username} |</p>
                 <span className='log' onClick={() => this.props.logout()}>
                   Log Out
                 </span>

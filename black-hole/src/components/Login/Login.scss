@@ -1,11 +1,13 @@
 .Login {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 10% auto;
   width: 50%;
-  height: 50vh;
+  height: max-content;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   align-items: center;
-  margin: 8% auto 0%;
   background: #070707e8;
   border: 2px solid #5f14ff;
   backdrop-filter: blur(15px);
@@ -13,7 +15,7 @@
 
   .logo {
     margin-top: 5%;
-    width: 5%;
+    width: 8%;
   }
 
   h2 {
@@ -42,7 +44,9 @@
       border: none;
       border-bottom: 1.5px solid rgba(255, 255, 255, 0.39);
       margin-bottom: 10%;
+      color: white;
       transition: 0.2s ease-in-out;
+      outline: none;
     }
 
     input:hover {
@@ -75,9 +79,18 @@
 .log {
   color: whitesmoke;
   margin-top: 2%;
+  padding-bottom: 5%;
 
   &:hover {
     cursor: pointer;
     text-decoration: underline;
+  }
+
+  .blackhole {
+    width: 100%;
+    user-select: none;
+    pointer-events: none;
+    width: 80%;
+    border: 1px solid red;
   }
 }
