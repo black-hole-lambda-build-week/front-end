@@ -1,14 +1,12 @@
-import React from 'react';
+import React from 'react'
 import { connect } from 'react-redux';
-<<<<<<< HEAD
 import Dump from './Dump'
 import './Dumps.scss'
 import { fetchingData, addNote } from '../../actions'
 
 class DumpContainer extends React.Component {
     state = {
-        message: '',
-        expiration: ''
+        message: ''
     }
 
     componentDidMount() {
@@ -24,7 +22,7 @@ class DumpContainer extends React.Component {
 
     add = e => {
         e.preventDefault()
-        this.props.addNote(this.state.message)
+        this.props.addNote(this.state)
     }
 
     render() {
@@ -47,40 +45,12 @@ class DumpContainer extends React.Component {
             </div>
         )
     }
-=======
-import Dump from './Dump';
-import './Dumps.scss';
-import { fetchingData } from '../../actions';
-
-class DumpContainer extends React.Component {
-  componentDidMount() {
-    this.props.fetchingData();
-  }
-
-  render() {
-    return (
-      <div className='DumpContainer'>
-        <h1 className='dump-header'>In Orbit</h1>
-        {this.props.dumps.map((dump, id) => (
-          <Dump dump={dump} key={id} className='message' />
-        ))}
-      </div>
-    );
-  }
->>>>>>> a8c51191457a3185c6df5a1f20a4b87268d5d910
 }
 
 const mapStateToProps = state => {
-  return {
-    dumps: state.note.notes
-  };
-};
+    return {
+        dumps: state.note.notes
+    }
+}
 
-<<<<<<< HEAD
 export default connect(mapStateToProps, { fetchingData, addNote })(DumpContainer)
-=======
-export default connect(
-  mapStateToProps,
-  { fetchingData }
-)(DumpContainer);
->>>>>>> a8c51191457a3185c6df5a1f20a4b87268d5d910
