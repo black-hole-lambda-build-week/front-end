@@ -50,7 +50,7 @@ export const reducer = (state = initialState, action) => {
         case ADD_NOTE_SUCCESS:
             return {
                 ...state,
-                notes: action.payload,
+                notes: [...state.notes, action.payload],
                 addingNote: false
             };
         case ADD_NOTE_FAILURE:
@@ -65,9 +65,10 @@ export const reducer = (state = initialState, action) => {
                 deletingNote: true
             };
         case DELETE_NOTE_SUCCESS:
+            const deleted = state.notes.filter(dump => dump.id !== action.payload)
             return {
                 ...state,
-                notes: action.payload,
+                notes: deleted,
                 deletingNote: false
             };
         case DELETE_NOTE_FAILURE:

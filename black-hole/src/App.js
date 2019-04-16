@@ -18,6 +18,7 @@ class App extends Component {
             className='logo'
             src={logo}
             onClick={() => this.props.toHome()}
+            alt='Logo'
           />
           <div className='user'>
             {this.props.loggedIn && (
@@ -35,11 +36,11 @@ class App extends Component {
             this.props.loggedIn ? (
               <DumpContainer />
             ) : (
-              <Login />
-            )
+                <Login />
+              )
           ) : (
-            <Home />
-          )}
+              <Home />
+            )}
         </section>
       </div>
     );

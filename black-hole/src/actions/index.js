@@ -83,12 +83,14 @@ export const fetchingData = () => dispatch => {
 
 export const addNote = note => dispatch => {
     dispatch({ type: ADD_NOTE_START });
-    console.log(note)
     return auth()
         .post(`${URL}/orbit`, note) //make sure this link gets filled in
         .then(res => {
             console.log(res);
-            dispatch({ type: ADD_NOTE_SUCCESS, payload: res.data });
+            dispatch({
+                type: ADD_NOTE_SUCCESS,
+                payload: res.data
+            });
         })
         .catch(err => {
             console.log(err);
@@ -112,14 +114,21 @@ export const updateNote = (id, note) => dispatch => {
 
 export const deleteNote = id => dispatch => {
     dispatch({ type: DELETE_NOTE_START });
+    console.log(id)
     return auth()
         .delete(`${URL}/orbit/${id}`) //make sure this link gets filled in
         .then(res => {
             console.log(res);
-            dispatch({ type: DELETE_NOTE_SUCCESS, payload: res.data });
+            dispatch({
+                type: DELETE_NOTE_SUCCESS,
+                payload: id
+            });
         })
         .catch(err => {
             console.log(err);
-            dispatch({ type: DELETE_NOTE_FAILURE, payload: err.data });
+            dispatch({
+                type: DELETE_NOTE_FAILURE,
+                payload: err.data
+            });
         })
 }
