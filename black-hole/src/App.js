@@ -11,7 +11,7 @@ import logo from './images/logo_uncolored.png';
 class App extends Component {
   componentDidMount() {
     localStorage.getItem('user') &&
-      this.props.login(JSON.parse(localStorage.getItem('user')))
+      this.props.login(JSON.parse(localStorage.getItem('user')));
   }
 
   render() {
@@ -27,10 +27,13 @@ class App extends Component {
           <div className='user'>
             {this.props.loggedIn && (
               <>
-                <p className='log-username'>{this.props.user.username} |</p>
-                <span className='log' onClick={() => this.props.logout()}>
-                  Log Out
-                </span>
+                <div className='nav-user'>
+                  <p className='log-username'>{this.props.user.username}</p>
+                  <p>|</p>
+                  <span className='log' onClick={() => this.props.logout()}>
+                    Log Out
+                  </span>
+                </div>
               </>
             )}
           </div>
@@ -40,11 +43,11 @@ class App extends Component {
             this.props.loggedIn ? (
               <DumpContainer />
             ) : (
-                <Login />
-              )
+              <Login />
+            )
           ) : (
-              <Home />
-            )}
+            <Home />
+          )}
         </section>
       </div>
     );
