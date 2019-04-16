@@ -6,7 +6,8 @@ const initialState = {
     home: false,
     dumps: [],
     globalDumps: [],
-    user: {}
+    user: {},
+    route: false
 }
 
 export default (state = initialState, action) => {
