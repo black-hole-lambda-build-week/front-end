@@ -96,7 +96,6 @@ export const reducer = (state = initialState, action) => {
                     return note
                 }
             })
-            console.log(newNotes, action.payload)
             return {
                 ...state,
                 notes: newNotes,

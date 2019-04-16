@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { toLogin, logout, toHome } from './actions';
+import { toLogin, logout, toHome, login } from './actions';
 import './App.scss';
 import DumpContainer from './components/DumpContainer';
 import Login from './components/Login';
@@ -9,44 +9,44 @@ import Home from './components/Home';
 import logo from './images/logo_uncolored.png';
 
 class App extends Component {
+  componentDidMount() {
+    localStorage.getItem('user') &&
+      this.props.login(JSON.parse(localStorage.getItem('user')))
+  }
+
   render() {
     return (
-      <>
-        <div className='App'>
-          <header>
-            <img
-              className='logo'
-              src={logo}
-              onClick={() => this.props.toHome()}
-              alt='Logo'
-            />
-            <div className='user'>
-              {this.props.loggedIn && (
-                <>
-                  <div className='nav-user'>
-                    <p className='log-username'>{this.props.user.username}</p>
-                    <p>|</p>
-                    <p className='log' onClick={() => this.props.logout()}>
-                      Log Out
-                    </p>
-                  </div>
-                </>
-              )}
-            </div>
-          </header>
-          <section>
-            {this.props.loggingIn ? (
-              this.props.loggedIn ? (
-                <DumpContainer />
-              ) : (
+      <div className='App'>
+        <nav>
+          <img
+            className='logo'
+            src={logo}
+            onClick={() => this.props.toHome()}
+            alt='Logo'
+          />
+          <div className='user'>
+            {this.props.loggedIn && (
+              <>
+                <p className='log-username'>{this.props.user.username} |</p>
+                <span className='log' onClick={() => this.props.logout()}>
+                  Log Out
+                </span>
+              </>
+            )}
+          </div>
+        </nav>
+        <section>
+          {this.props.loggingIn || this.props.loggedIn ? (
+            this.props.loggedIn ? (
+              <DumpContainer />
+            ) : (
                 <Login />
               )
-            ) : (
+          ) : (
               <Home />
             )}
-          </section>
-        </div>
-      </>
+        </section>
+      </div>
     );
   }
 }
@@ -63,5 +63,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { toLogin, logout, toHome }
+  { toLogin, logout, toHome, login }
 )(App);
