@@ -58,8 +58,8 @@ class Dump extends React.Component {
               this.props.dump.message
             )}
           </p>
-          <p>
-            Experation Date:{' '}
+          <p className='time-left'>
+            Time left in orbit:{' '}
             {this.state.editing ? (
               <input
                 type='date'
