@@ -16,7 +16,6 @@ class App extends Component {
 
   render() {
     return (
-<<<<<<< HEAD
       <div className='App'>
         <nav>
           <img
@@ -41,44 +40,13 @@ class App extends Component {
             this.props.loggedIn ? (
               <DumpContainer />
             ) : (
-=======
-      <>
-        <div className='App'>
-          <header>
-            <img
-              className='logo'
-              src={logo}
-              onClick={() => this.props.toHome()}
-              alt='Logo'
-            />
-            <div className='user'>
-              {this.props.loggedIn && (
-                <>
-                  <div className='nav-user'>
-                    <p className='log-username'>{this.props.user.username}</p>
-                    <p>|</p>
-                    <p className='log' onClick={() => this.props.logout()}>
-                      Log Out
-                    </p>
-                  </div>
-                </>
-              )}
-            </div>
-          </header>
-          <section>
-            {this.props.loggingIn ? (
-              this.props.loggedIn ? (
-                <DumpContainer />
-              ) : (
->>>>>>> 87327fd6cca1b3635d51399dceb4f582be554e86
                 <Login />
               )
-            ) : (
+          ) : (
               <Home />
             )}
-          </section>
-        </div>
-      </>
+        </section>
+      </div>
     );
   }
 }
