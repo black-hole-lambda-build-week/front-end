@@ -1,34 +1,24 @@
 .App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  width: 96%;
-  margin: 1% auto;
-  font-size: 1.5rem;
-
-  header {
-    position: relative;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    width: 95%;
-    height: 50px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-<<<<<<< HEAD
     justify-content: flex-start;
     width: 96%;
     margin: 1% auto;
     font-size: 1.5rem;
 
     nav {
-        width: 96%;
+        position: relative;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 95%;
         height: 50px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         z-index: 999999;
+        position: fixed;
 
         .logo {
             width: 8%;
@@ -37,50 +27,31 @@
                 cursor: pointer;
             }
         }
+    }
 
-        .user {
-            width: 15%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+    .user {
+        width: 20%;
+    }
+
+    .nav-user {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .log {
+        margin: 0;
+        padding-bottom: 0;
+
+        p {
+            margin: 0;
+            padding: 0;
         }
-=======
-    justify-content: space-between;
-    z-index: 999999;
-    position: fixed;
-
-    .logo {
-      width: 8%;
-      &:hover {
-        cursor: pointer;
-      }
     }
-  }
->>>>>>> 87327fd6cca1b3635d51399dceb4f582be554e86
 
-  .user {
-    width: 20%;
-  }
-
-  .nav-user {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-
-  .log {
-    margin: 0;
-    padding-bottom: 0;
-
-    p {
-      margin: 0;
-      padding: 0;
+    section {
+        width: 100%;
+        padding: 0 0 25px;
     }
-  }
-
-  section {
-    width: 100%;
-    padding: 0 0 25px;
-  }
 }
