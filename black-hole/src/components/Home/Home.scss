@@ -1,18 +1,48 @@
 .Home {
-    width: 80vw;
-    height: 70vh;
-    background: #070707dd;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-    padding: 25px 0;
-    border-radius: 50px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.89);
+  backdrop-filter: blur(15px);
+  border-left: 2px solid #5f14ff;
 
-    .header {
-        background: url('../../images/logo_colored.png') no-repeat center / contain;
-        width: 100%;
-        height: 200px;
-    }
+  .home-logo {
+    width: 40%;
+  }
+
+  .home-caption {
+    color: white;
+    width: 80%;
+    padding: 2%;
+    font-size: 1.8rem;
+  }
+  .bottom-caption::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.199);
+    margin-top: 5%;
+  }
+
+  .login-btn {
+    width: 80%;
+    padding: 18px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #5f14ff 0%, #6c12dd 100%);
+    border: none;
+    color: white;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  .login-btn:hover {
+    transition: 0.2s ease-in-out;
+    transform: scale(0.98);
+  }
 }

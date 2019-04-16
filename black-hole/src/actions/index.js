@@ -83,6 +83,7 @@ export const fetchingData = () => dispatch => {
 
 export const addNote = note => dispatch => {
     dispatch({ type: ADD_NOTE_START });
+    console.log(note)
     return auth()
         .post(`${URL}/orbit`, note) //make sure this link gets filled in
         .then(res => {

@@ -1,10 +1,45 @@
 .DumpContainer {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-    padding: 15px;
-    border-radius: 50px;
-    background: #070707dd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2%;
+
+  .dump-header {
+    color: white;
+    text-transform: uppercase;
+    font-size: 5rem;
+    margin: 0;
+    margin-left: 10%;
+    align-self: flex-start;
+  }
+
+  .note {
+    background: linear-gradient(180deg, #000000 0%, #000000 100%);
+    border-radius: 5px;
+    margin: 1% 0;
+    width: 80%;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+
+  .note:hover {
+    transition: 0.2s ease;
+    transform: scale(1.02);
+    background: linear-gradient(180deg, #5f14ff 0%, #6c12dd 100%);
+  }
+
+  .message {
+    padding: 0 2%;
+    color: white;
+    height: 4vh;
+    overflow: hidden;
+  }
+
+  .time-left {
+    color: grey;
+    font-size: 1.2rem;
+    text-align: right;
+    margin-bottom: 0;
+    margin-right: 2%;
+  }
 }
