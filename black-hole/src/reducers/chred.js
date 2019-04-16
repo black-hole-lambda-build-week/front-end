@@ -50,7 +50,10 @@ export const reducer = (state = initialState, action) => {
         case ADD_NOTE_SUCCESS:
             return {
                 ...state,
-                notes: [...state.notes, action.payload],
+                notes: [...state.notes, {
+                    id: action.payload[1],
+                    message: action.payload[0]
+                }],
                 addingNote: false
             };
         case ADD_NOTE_FAILURE:
@@ -83,9 +86,11 @@ export const reducer = (state = initialState, action) => {
                 updatingNote: true
             };
         case UPDATE_NOTE_SUCCESS:
+            const update = state.notes[state.notes.indexOf(action.payload[0])];
+            console.log(update, action.payload)
             return {
                 ...state,
-                notes: action.payload,
+                notes: update,
                 updatingNote: false
             };
         case UPDATE_NOTE_FAILURE:

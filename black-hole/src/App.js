@@ -10,7 +10,6 @@ import logo from './images/logo_uncolored.png';
 
 class App extends Component {
   render() {
-    console.log(this.props);
     return (
       <div className='App'>
         <header>

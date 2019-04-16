@@ -86,7 +86,7 @@ export const addNote = note => dispatch => {
     return auth()
         .post(`${URL}/orbit`, note) //make sure this link gets filled in
         .then(res => {
-            console.log(res);
+            console.log('add', res.data[0]);
             dispatch({
                 type: ADD_NOTE_SUCCESS,
                 payload: res.data
@@ -94,7 +94,9 @@ export const addNote = note => dispatch => {
         })
         .catch(err => {
             console.log(err);
-            dispatch({ type: ADD_NOTE_FAILURE, payload: err.data });
+            dispatch({
+                type: ADD_NOTE_FAILURE, payload: err.data
+            });
         })
 }
 
@@ -103,12 +105,21 @@ export const updateNote = (id, note) => dispatch => {
     return auth()
         .put(`${URL}/orbit/${id}`, note) //make sure this link gets filled in
         .then(res => {
-            console.log(res);
-            dispatch({ type: UPDATE_NOTE_SUCCESS, payload: res.data });
+            console.log('update', res);
+            dispatch({
+                type: UPDATE_NOTE_SUCCESS,
+                payload: {
+                    id: res.data[0],
+                    message: res.data[1]
+                }
+            });
         })
         .catch(err => {
             console.log(err);
-            dispatch({ type: UPDATE_NOTE_FAILURE, payload: err.data });
+            dispatch({
+                type: UPDATE_NOTE_FAILURE,
+                payload: err.data
+            });
         })
 }
 

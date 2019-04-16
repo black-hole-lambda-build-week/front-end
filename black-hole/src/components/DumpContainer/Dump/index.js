@@ -6,8 +6,7 @@ class Dump extends React.Component {
     state = {
         editing: false,
         updateNote: {
-            noteInput: '',
-            experationDate: ''
+            message: ''
         }
     };
 
@@ -26,9 +25,10 @@ class Dump extends React.Component {
         this.props.deleteNote(this.props.dump.id)
     }
 
-    handeUpdate = e => {
+    handleUpdate = e => {
         e.preventDefault();
-        this.props.note.updateNote(this.state.noteInput, this.state.experationDate);
+        console.log(this.state.updateNote)
+        this.props.updateNote(this.props.dump.id, this.state.updateNote);
     };
 
     render() {
@@ -50,12 +50,11 @@ class Dump extends React.Component {
 
                 <form onSubmit={this.handleUpdate}>
                     <p className='message'>
-                        Input-Text:
-            {this.state.editing ? (
+                        {this.state.editing ? (
                             <input
                                 type='text'
-                                name='noteInput'
-                                value={this.state.updateNote.noteInput}
+                                name='message'
+                                value={this.state.updateNote.message}
                                 onChange={this.handleInput}
                             />
                         ) : (
