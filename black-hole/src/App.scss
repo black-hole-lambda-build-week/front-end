@@ -8,7 +8,11 @@
   font-size: 1.5rem;
 
   header {
-    width: 96%;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 95%;
     height: 50px;
     display: flex;
     align-items: center;
@@ -18,52 +22,35 @@
 
     .logo {
       width: 8%;
-
       &:hover {
         cursor: pointer;
       }
     }
+  }
 
-    .user {
-      width: 10%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+  .user {
+    width: 20%;
+  }
 
-    .log {
-      color: whitesmoke;
+  .nav-user {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .log {
+    margin: 0;
+    padding-bottom: 0;
+
+    p {
       margin: 0;
-      padding-bottom: 0;
-
-      &:hover {
-        cursor: pointer;
-        text-decoration: underline;
-      }
-    }
-
-    .log-username {
-      word-spacing: 40px;
-    }
-
-    .unlogged {
-      width: 100%;
+      padding: 0;
     }
   }
 
   section {
     width: 100%;
     padding: 0 0 25px;
-  }
-
-  .blackhole {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    width: 100%;
-    user-select: none;
-    pointer-events: none;
-    width: 80%;
   }
 }

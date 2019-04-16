@@ -7,11 +7,9 @@ import Login from './components/Login';
 import Home from './components/Home';
 
 import logo from './images/logo_uncolored.png';
-import blackhole from './images/blackhole.mp4';
 
 class App extends Component {
   render() {
-    console.log(this.props);
     return (
       <>
         <div className='App'>
@@ -25,10 +23,13 @@ class App extends Component {
             <div className='user'>
               {this.props.loggedIn && (
                 <>
-                  <p className='log-username'>{this.props.user.username} |</p>
-                  <span className='log' onClick={() => this.props.logout()}>
-                    Log Out
-                  </span>
+                  <div className='nav-user'>
+                    <p className='log-username'>{this.props.user.username}</p>
+                    <p>|</p>
+                    <p className='log' onClick={() => this.props.logout()}>
+                      Log Out
+                    </p>
+                  </div>
                 </>
               )}
             </div>
