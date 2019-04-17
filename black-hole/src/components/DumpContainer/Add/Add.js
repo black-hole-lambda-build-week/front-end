@@ -6,7 +6,8 @@ import './Add.scss'
 
 class Add extends Component {
     state = {
-        message: ''
+        message: '',
+        expirationDate: ''
     }
 
     handleChanges = e => {
@@ -39,6 +40,19 @@ class Add extends Component {
                         placeholder='THIS SOME BULL**** HOW YOU GON TELL ME HOW TA LIVE MY LIFE AFTER YOU WALK IN HERE AND LITERALLY SLAP ME IN THE FACE WITH YOUR WORDS'
                     />
                     <button className='to-orbit'>Send to Orbit</button>
+                    <div className='tio'>
+                        <span>Time in Orbit: </span>
+                        <select>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7" selected>7</option>
+                        </select>
+                        <span> days</span>
+                    </div>
                 </form>
                 <button
                     className='to-hole'
