@@ -6,8 +6,8 @@ export default props => {
             <p className='message'>{props.dump.message}
             </p>
             <p className='time-left'>
-                Time left in orbit: DISPLAY EXPIRATION DATE HERE
-                    </p>
+                Time left in orbit: {props.dump.expirationDate}
+            </p>
         </div>
     );
 }
