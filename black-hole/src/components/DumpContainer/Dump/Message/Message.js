@@ -7,7 +7,6 @@ class Message extends Component {
         super(props);
         this.state = {
             editing: false,
-            message: null,
             updateNote: {
                 message: ''
             }
@@ -24,9 +23,9 @@ class Message extends Component {
         });
     };
 
-    deleteNote = e => {
-        e.preventDefault();
+    deleteNote = () => {
         this.props.deleteNote(this.props.dump.id);
+        this.props.unMessage()
     };
 
     handleUpdate = e => {
@@ -63,11 +62,12 @@ class Message extends Component {
                 <form onSubmit={this.handleUpdate}>
                     <p className='message'>
                         {this.state.editing ? (
-                            <input
+                            <textarea
                                 type='text'
                                 name='message'
                                 value={this.state.updateNote.message}
                                 onChange={this.handleInput}
+                                style={{ resize: 'none' }}
                             />
                         ) : (
                                 this.props.dump.message
@@ -86,8 +86,9 @@ class Message extends Component {
                                 'DISPLAY EXPERATION DATE HERE'
                             )}
                     </p> */}
+                    <button>Add</button>
                 </form>
-                <button onClick={this.deleteNote}>Delete</button>
+                <button onClick={() => this.deleteNote()}>Delete</button>
             </div>
         )
     }

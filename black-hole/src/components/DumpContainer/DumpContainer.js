@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Dump from './Dump';
-import Message from './Dump/Message/Message'
+import Add from './Add'
+import Message from './Dump/Message'
 import './Dumps.scss';
 import { fetchingData, addNote } from '../../actions';
 
@@ -12,7 +13,8 @@ class DumpContainer extends React.Component {
         message: {
             id: '',
             bool: false
-        }
+        },
+        bool: false
     };
 
     componentDidMount() {
@@ -46,19 +48,34 @@ class DumpContainer extends React.Component {
         })
     }
 
+    unBool = () => {
+        this.setState({
+            ...this.state,
+            bool: false
+        })
+    }
+
     render() {
         return (
             <>
                 <div className='DumpContainer'>
                     <h1 className='dump-header'>In Orbit</h1>
-                    {this.state.message.bool ?
-                        <Message
-                            dump={this.props.dumps[this.props.dumps.findIndex(dump => dump.id === this.state.message.id)]}
-                            unMessage={this.unMessage}
+                    {this.state.bool ?
+                        <Add
+                            unBool={this.unBool}
                         /> :
-                        this.props.dumps.map((dump, id) => (
-                            <Dump dump={dump} toMessage={this.toMessage} key={id} />
-                        ))}
+                        this.state.message.bool ?
+                            <Message
+                                dump={this.props.dumps[this.props.dumps.findIndex(dump => dump.id === this.state.message.id)]}
+                                unMessage={this.unMessage}
+                            /> :
+                            this.props.dumps.map((dump, id) => (
+                                <Dump dump={dump} toMessage={this.toMessage} key={id} />
+                            ))}
+                    <button onClick={() => this.setState({
+                        ...this.state,
+                        bool: true
+                    })}>Add New Message?</button>
                 </div>
                 <img src={bg} alt='' className='background' />
             </>
