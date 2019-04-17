@@ -16,7 +16,7 @@
 
 |Folder name|File Name|Description|
 |---|---|---|
-|DumpContainer|`dump.js`| DumpContainer folders dump.js file allows for you to update any post entry submittion |
+|DumpContainer|`DumpContainer.js`| DumpContainer is a statefull class component that is the heart of the application, and deals with the logic of switching what's viewed|
 |Home|`index.js`|Home folders index.js file is the main screen that users first see before logging in|
 |Login|`login.js`|Login folders login.js file will conditionally render a login or register form depending on if you've registered or not before|
 
