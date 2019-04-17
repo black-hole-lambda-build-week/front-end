@@ -24,7 +24,7 @@ const Home = props => {
           Log In
         </button>
       </div>
-      <img src={blackhole} className='blackhole' />
+      <img src={blackhole} className='blackhole' alt='' />
     </>
   );
 };

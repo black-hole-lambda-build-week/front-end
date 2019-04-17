@@ -76,7 +76,7 @@ class Login extends Component {
               Not a Member Yet?
             </span>
           </div>
-          <img src={blackhole} className='blackhole' />
+          <img src={blackhole} className='blackhole' alt='' />
         </>
       );
     } else {
@@ -108,7 +108,7 @@ class Login extends Component {
               Already Signed Up?
             </span>
           </div>
-          <img src={blackhole} className='blackhole' />
+          <img src={blackhole} className='blackhole' alt='' />
         </>
       );
     }
