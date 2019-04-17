@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { addNote } from '../../../actions'
+import moment from 'moment'
 
 import './Add.scss'
 
 class Add extends Component {
     state = {
         message: '',
-        expirationDate: ''
+        expirationDate: moment().format('YYYY/MM/DD'),
+        numberOfDays: 7,
+        user_id: localStorage.getItem('userId')
     }
 
     handleChanges = e => {
@@ -22,9 +25,8 @@ class Add extends Component {
         this.props.unBool()
     }
 
-    toBlackHole = e => {
-        e.preventDefault()
-        e.stopPropagation()
+    toBlackHole = () => {
+        setTimeout(() => this.props.unBool(), 10000)
     }
 
     render() {
@@ -42,21 +44,24 @@ class Add extends Component {
                     <button className='to-orbit'>Send to Orbit</button>
                     <div className='tio'>
                         <span>Time in Orbit: </span>
-                        <select>
+                        <select
+                            onChange={this.handleChanges}
+                            name='numberOfDays'
+                        >
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
                             <option value="6">6</option>
-                            <option value="7" selected>7</option>
+                            <option value="7" defaultValue selected>7</option>
                         </select>
                         <span> days</span>
                     </div>
                 </form>
                 <button
                     className='to-hole'
-                    onClick={() => this.toBlackHole}
+                    onClick={() => this.toBlackHole()}
                 >Send to Black Hole</button>
             </div>
         )

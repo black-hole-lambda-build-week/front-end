@@ -83,4 +83,26 @@
         align-self: flex-end;
         margin-right: 2%;
     }
+
+    .blackholeAnimation {
+        animation-name: blackhole;
+        animation-duration: 2s;
+    }
+
+    @keyframes blackhole {
+        from {
+            transform: rotate(0deg);
+            border: none;
+            height: 100%;
+            width: 100%;
+        }
+
+        to {
+            transform: rotate(360deg);
+            width: 0;
+            height: 0;
+            border: none;
+            font-size: 0;
+        }
+    }
 }

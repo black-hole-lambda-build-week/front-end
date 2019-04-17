@@ -23,6 +23,8 @@ export const
 
 const URL = 'https://blackhole-app.herokuapp.com';
 
+const userId = localStorage.getItem('userId') && localStorage.getItem('userId');
+
 export const register = creds => dispatch => {
     auth()
         .post('https://blackhole-app.herokuapp.com/register', creds)
@@ -50,6 +52,7 @@ export const login = creds => dispatch => {
                 type: LOGIN_SUCCESS,
                 payload: res.data.payload
             })
+            localStorage.setItem('userId', res.data.id)
         })
         .catch(err => dispatch({
             type: LOGIN_FAILURE,
@@ -72,9 +75,8 @@ export const logout = () => dispatch => {
 export const fetchingData = () => dispatch => {
     dispatch({ type: FETCH_DATA_START });
     return auth()
-        .get(`${URL}/orbit`) //make sure this link gets filled in
+        .get(`${URL}/orbit/users/${userId}`) //make sure this link gets filled in
         .then(res => {
-            console.log(res);
             dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data });
         })
         .catch(err => {
@@ -88,7 +90,6 @@ export const addNote = note => dispatch => {
     return auth()
         .post(`${URL}/orbit`, note) //make sure this link gets filled in
         .then(res => {
-            console.log('add', res.data[0]);
             dispatch({
                 type: ADD_NOTE_SUCCESS,
                 payload: res.data
