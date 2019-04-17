@@ -55,7 +55,7 @@ class Message extends Component {
                             onChange={this.handleInput}
                             style={{ resize: 'none' }}
                             placeholder={this.props.dump.message}
-                        />
+                        >{this.props.dump.message}</textarea>
                     ) : (
                             this.props.dump.message
                         )}
