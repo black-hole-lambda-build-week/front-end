@@ -7,6 +7,7 @@ import './Dumps.scss';
 import { fetchingData, addNote } from '../../actions';
 
 import bg from '../../images/bg2.jpg';
+import blackhole from '../../images/animator.gif';
 
 class DumpContainer extends React.Component {
     state = {
@@ -59,7 +60,20 @@ class DumpContainer extends React.Component {
         return (
             <>
                 <div className='DumpContainer'>
-                    <h1 className='dump-header'>In Orbit</h1>
+                    <h1
+                        className='dump-header'
+                        style={{
+                            display: this.state.bool && 'none'
+                        }}
+                    >In Orbit</h1>
+                    <p
+                        className='add'
+                        onClick={() => this.setState({
+                            ...this.state,
+                            bool: !this.state.bool
+                        })}>{this.state.bool ?
+                            'Cancel' :
+                            '+ Create a message'}</p>
                     {this.state.bool ?
                         <Add
                             unBool={this.unBool}
@@ -72,12 +86,8 @@ class DumpContainer extends React.Component {
                             this.props.dumps.map((dump, id) => (
                                 <Dump dump={dump} toMessage={this.toMessage} key={id} />
                             ))}
-                    <button onClick={() => this.setState({
-                        ...this.state,
-                        bool: true
-                    })}>Add New Message?</button>
                 </div>
-                <img src={bg} alt='' className='background' />
+                <img src={this.state.bool ? blackhole : bg} alt='' className='background' />
             </>
         );
     }
