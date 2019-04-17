@@ -57,27 +57,27 @@ class Message extends Component {
                             placeholder={this.props.dump.message}
                         >{this.props.dump.message}</textarea>
                     ) : (
-                            this.props.dump.message
+                            <span className='priorMessage'>{this.props.dump.message}</span>
                         )}
-                    {/* <p className='time-left'>
-                        Time left in orbit:{' '}
-                        {this.state.editing ? (
-                            <input
-                                type='date'
-                                name='experationDate'
-                                value={this.state.updateNote.experationDate}
-                                onChange={this.handleInput}
-                            />
-                        ) : (
-                                'DISPLAY EXPERATION DATE HERE'
-                            )}
-                    </p> */}
                     <button
                         className='to-orbit'
                         style={{
                             display: this.state.editing ? 'block' : 'none'
                         }}
                     >Send to Orbit</button>
+                    <div className='tio'>
+                        <span>Time in Orbit: </span>
+                        <select>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7" selected>7</option>
+                        </select>
+                        <span> days</span>
+                    </div>
                 </form>
                 <button
                     className='to-orbit'
