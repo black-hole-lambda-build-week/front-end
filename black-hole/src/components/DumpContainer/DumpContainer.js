@@ -68,12 +68,25 @@ class DumpContainer extends React.Component {
                     >In Orbit</h1>
                     <p
                         className='add'
-                        onClick={() => this.setState({
-                            ...this.state,
-                            bool: !this.state.bool
-                        })}>{this.state.bool ?
+                        onClick={() => {
+                            this.state.message.bool ?
+                                this.setState({
+                                    ...this.state,
+                                    message: {
+                                        ...this.state.message,
+                                        id: '',
+                                        bool: false
+                                    }
+                                }) :
+                                this.setState({
+                                    ...this.state,
+                                    bool: !this.state.bool
+                                })
+                        }}>{this.state.bool ?
                             'Cancel' :
-                            '+ Create a message'}</p>
+                            this.state.message.bool ?
+                                'Cancel' :
+                                '+ Create a message'}</p>
                     {this.state.bool ?
                         <Add
                             unBool={this.unBool}

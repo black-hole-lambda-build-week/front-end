@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { updateNote, deleteNote } from '../../../../actions'
+import './Message.scss'
 
 class Message extends Component {
     constructor(props) {
@@ -45,34 +46,19 @@ class Message extends Component {
     render() {
         return (
             <div className='Message'>
-                <button
-                    onClick={() =>
-                        this.setState({
-                            ...this.state,
-                            editing: true
-                        })
-                    }
-                    style={{
-                        display: !this.state.editing ? 'block' : 'none'
-                    }}
-                >
-                    Edit Entry
-        </button>
-
                 <form onSubmit={this.handleUpdate}>
-                    <p className='message'>
-                        {this.state.editing ? (
-                            <textarea
-                                type='text'
-                                name='message'
-                                value={this.state.updateNote.message}
-                                onChange={this.handleInput}
-                                style={{ resize: 'none' }}
-                            />
-                        ) : (
-                                this.props.dump.message
-                            )}
-                    </p>
+                    {this.state.editing ? (
+                        <textarea
+                            type='text'
+                            name='message'
+                            value={this.state.updateNote.message}
+                            onChange={this.handleInput}
+                            style={{ resize: 'none' }}
+                            placeholder={this.props.dump.message}
+                        />
+                    ) : (
+                            this.props.dump.message
+                        )}
                     {/* <p className='time-left'>
                         Time left in orbit:{' '}
                         {this.state.editing ? (
@@ -86,9 +72,31 @@ class Message extends Component {
                                 'DISPLAY EXPERATION DATE HERE'
                             )}
                     </p> */}
-                    <button>Add</button>
+                    <button
+                        className='to-orbit'
+                        style={{
+                            display: this.state.editing ? 'block' : 'none'
+                        }}
+                    >Send to Orbit</button>
                 </form>
-                <button onClick={() => this.deleteNote()}>Delete</button>
+                <button
+                    className='to-orbit'
+                    onClick={() =>
+                        this.setState({
+                            ...this.state,
+                            editing: true
+                        })
+                    }
+                    style={{
+                        display: !this.state.editing ? 'block' : 'none'
+                    }}
+                >
+                    Edit Entry
+        </button>
+                <button
+                    className='to-hole'
+                    onClick={() => this.deleteNote()}
+                >Send to Black Hole</button>
             </div>
         )
     }

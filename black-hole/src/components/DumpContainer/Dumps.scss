@@ -35,12 +35,12 @@
         width: 80%;
         cursor: pointer;
         transition: 0.2s ease-out;
-    }
 
-    .note:hover {
-        transition: 0.2s ease-out;
-        transform: scale(1.02);
-        background: linear-gradient(180deg, #5f14ff 0%, #6c12dd 100%);
+        &:hover {
+            transition: 0.2s ease-out;
+            transform: scale(1.02);
+            background: linear-gradient(180deg, #5f14ff 0%, #6c12dd 100%);
+        }
     }
 
     .message {
