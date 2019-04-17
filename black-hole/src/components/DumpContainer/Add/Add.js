@@ -29,6 +29,7 @@ class Add extends Component {
     render() {
         return (
             <div className='Add'>
+                <p>What's on your mind today, {this.props.user.username}?</p>
                 <form onSubmit={this.addNote}>
                     <textarea
                         onChange={this.handleChanges}
@@ -49,7 +50,9 @@ class Add extends Component {
 }
 
 const mapStateToProps = state => {
-    return {}
+    return {
+        user: state.login.user
+    }
 }
 
 export default connect(mapStateToProps, { addNote })(Add)
