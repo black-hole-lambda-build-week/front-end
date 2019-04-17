@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { updateNote, deleteNote } from '../../../../actions'
+import moment from 'moment'
 import './Message.scss'
 
 class Message extends Component {
@@ -8,8 +9,11 @@ class Message extends Component {
         super(props);
         this.state = {
             editing: false,
+            animation: false,
             updateNote: {
-                message: ''
+                message: '',
+                expirationDate: moment().format('YYYY/MM/DD'),
+                numberOfDays: 7
             }
         };
     }
@@ -25,8 +29,14 @@ class Message extends Component {
     };
 
     deleteNote = () => {
-        this.props.deleteNote(this.props.dump.id);
-        this.props.unMessage()
+        this.setState({
+            ...this.state,
+            animation: true
+        })
+        setTimeout(() => {
+            this.props.deleteNote(this.props.dump.id)
+            this.props.unMessage()
+        }, 5000)
     };
 
     handleUpdate = e => {
@@ -44,8 +54,9 @@ class Message extends Component {
     }
 
     render() {
+        console.log(this.state.animation)
         return (
-            <div className='Message'>
+            <div className={`Message ${this.state.animation && 'blackholeAnimation'}`}>
                 <form onSubmit={this.handleUpdate}>
                     {this.state.editing ? (
                         <textarea
@@ -67,14 +78,14 @@ class Message extends Component {
                     >Send to Orbit</button>
                     <div className='tio'>
                         <span>Time in Orbit: </span>
-                        <select>
+                        <select name='numberOfDays'>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
                             <option value="6">6</option>
-                            <option value="7" selected>7</option>
+                            <option value="7" defaultValue selected>7</option>
                         </select>
                         <span> days</span>
                     </div>

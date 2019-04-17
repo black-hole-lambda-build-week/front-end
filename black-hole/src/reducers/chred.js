@@ -51,8 +51,10 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 notes: [...state.notes, {
+                    message: action.payload[0],
                     id: action.payload[1],
-                    message: action.payload[0]
+                    expirationDate: action.payload[2],
+                    numberOfDays: action.payload[3]
                 }],
                 addingNote: false
             };
@@ -88,14 +90,12 @@ export const reducer = (state = initialState, action) => {
         case UPDATE_NOTE_SUCCESS:
             const newNotes = state.notes.map(note => {
                 if (note.id === action.payload.id) {
-                    return note = {
-                        ...note,
-                        message: action.payload.message
-                    }
+                    return note = action.payload
                 } else {
                     return note
                 }
             })
+            console.log('newNotes', action.payload)
             return {
                 ...state,
                 notes: newNotes,
