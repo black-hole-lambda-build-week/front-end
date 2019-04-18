@@ -8,6 +8,7 @@ import './Dumps.scss';
 import { fetchingData, addNote } from '../../actions';
 
 import blackhole from '../../images/animator.gif';
+import stars from '../../images/stars1.png';
 
 class DumpContainer extends React.Component {
   state = {
@@ -113,6 +114,7 @@ class DumpContainer extends React.Component {
             ))
           )}
         </div>
+        <img src={stars} alt='' className='stars' />
         <img src={blackhole} alt='' className='background' />
       </>
     );

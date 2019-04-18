@@ -93,41 +93,43 @@ class Message extends Component {
               <span> days</span>
             </div>
           </form>
-          <button
-            className='to-orbit'
-            onClick={() =>
-              this.setState({
-                ...this.state,
-                editing: true
-              })
-            }
-            style={{
-              display: !this.state.editing ? 'block' : 'none'
-            }}
-          >
-            Edit Entry
-          </button>
-          <button
-            onClick={() => this.handleUpdate()}
-            className='to-orbit'
-            style={{
-              display: this.state.editing ? 'block' : 'none'
-            }}
-          >
-            Send to Orbit
-          </button>
-          <button
-            className='to-hole'
-            onClick={() => {
-              this.setState({
-                ...this.state,
-                animation: true
-              });
-              this.deleteNote();
-            }}
-          >
-            Send to Black Hole
-          </button>
+          <div className='edit-btns-container'>
+            <button
+              className='to-orbit'
+              onClick={() =>
+                this.setState({
+                  ...this.state,
+                  editing: true
+                })
+              }
+              style={{
+                display: !this.state.editing ? 'block' : 'none'
+              }}
+            >
+              Edit Entry
+            </button>
+            <button
+              onClick={() => this.handleUpdate()}
+              className='to-orbit'
+              style={{
+                display: this.state.editing ? 'block' : 'none'
+              }}
+            >
+              Send to Orbit
+            </button>
+            <button
+              className='to-hole'
+              onClick={() => {
+                this.setState({
+                  ...this.state,
+                  animation: true
+                });
+                this.deleteNote();
+              }}
+            >
+              Send to Black Hole
+            </button>
+          </div>
         </div>
       </div>
     );

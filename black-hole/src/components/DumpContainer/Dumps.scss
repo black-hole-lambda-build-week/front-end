@@ -22,10 +22,9 @@
 
   .add {
     text-align: end;
-    text-transform: uppercase;
+    font-weight: 700;
     color: rgb(139, 139, 139);
     cursor: pointer;
-    font-weight: bold;
     width: 80%;
     margin: 6% auto 0;
     font-weight: 400;
@@ -78,13 +77,23 @@
   }
 }
 
-.background {
+.stars {
   position: fixed;
-  filter: contrast(120%);
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 101;
   width: 100%;
+  object-fit: cover;
+  opacity: 0.2;
+}
+
+.background {
+  position: fixed;
+  filter: contrast(110%);
+  top: 0;
+  left: -25%;
+  z-index: 100;
+  width: 150%;
   object-fit: cover;
   height: 100vh;
   user-select: none;
