@@ -7,8 +7,8 @@ import Message from './Dump/Message/Message';
 import './Dumps.scss';
 import { fetchingData, addNote } from '../../actions';
 
-import blackhole from '../../images/animator.gif';
-import bg from '../../images/animator.gif';
+import blackhole from '../../images/animator2.gif';
+import bg from '../../images/animator2.gif';
 import stars from '../../images/stars1.png';
 import planet from '../../images/planet.png';
 

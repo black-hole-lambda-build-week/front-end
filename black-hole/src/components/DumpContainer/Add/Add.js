@@ -45,7 +45,7 @@ class Add extends Component {
             name='message'
             value={this.state.message.message}
             style={{ resize: 'none' }}
-            placeholder='THIS SOME BULL**** HOW YOU GON TELL ME HOW TA LIVE MY LIFE AFTER YOU WALK IN HERE AND LITERALLY SLAP ME IN THE FACE WITH YOUR WORDS'
+            placeholder='Type out whatever you feel here, let out all emotions and tension.'
           />
           <div className='tio'>
             <span>Time in Orbit: </span>
@@ -66,7 +66,9 @@ class Add extends Component {
           </div>
         </form>
         <div className='add-btns'>
-          <button onClick={() => this.addNote()} className='to-orbit'>Send to Orbit</button>
+          <button onClick={() => this.addNote()} className='to-orbit'>
+            Send to Orbit
+          </button>
           <button
             className='to-hole'
             onClick={() => {
