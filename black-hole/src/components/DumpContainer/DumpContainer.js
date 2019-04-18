@@ -7,7 +7,6 @@ import Message from './Dump/Message/Message';
 import './Dumps.scss';
 import { fetchingData, addNote } from '../../actions';
 
-import bg from '../../images/bg2.jpg';
 import blackhole from '../../images/animator.gif';
 
 class DumpContainer extends React.Component {
@@ -114,11 +113,7 @@ class DumpContainer extends React.Component {
             ))
           )}
         </div>
-        <img
-          src={this.state.bool ? blackhole : bg}
-          alt=''
-          className='background'
-        />
+        <img src={blackhole} alt='' className='background' />
       </>
     );
   }

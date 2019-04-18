@@ -22,15 +22,17 @@
 
   .add {
     text-align: end;
-    color: whitesmoke;
+    text-transform: uppercase;
+    color: rgb(139, 139, 139);
     cursor: pointer;
     font-weight: bold;
-    width: 58%;
+    width: 80%;
     margin: 6% auto 0;
     font-weight: 400;
+    transition: 0.1s ease-in-out;
 
     &:hover {
-      text-decoration: underline;
+      color: white;
     }
   }
 
@@ -61,7 +63,7 @@
   .message {
     padding: 0 2%;
     color: whitesmoke;
-    height: 4.3em;
+    height: 6em;
     overflow: hidden;
   }
 
@@ -71,14 +73,12 @@
     text-align: right;
     margin-bottom: 0;
     margin-right: 2%;
+    padding-bottom: 10px;
   }
 }
 
 .background {
-  position: absolute;
-  mix-blend-mode: screen;
   position: fixed;
-  opacity: 0.8;
   filter: contrast(120%);
   top: 0;
   left: 0;

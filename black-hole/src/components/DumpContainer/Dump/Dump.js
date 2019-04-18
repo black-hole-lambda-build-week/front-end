@@ -5,7 +5,9 @@ export default props => {
   console.log(props);
   let filter = props.dump.message
       .replace(/([fsc][uh][cni][kt])/gi, '****')
-      .replace(/([b][i][t][c][h])/gi, '*****'),
+      .replace(/([a][s][s])/gi, '***')
+      .replace(/([pd][ia][sm][sn])/gi, '****')
+      .replace(/([bp][ir][ti][c][hk])/gi, '*****'),
     timeLeft = (originalTime, timeInOrbit) => {
       return moment(originalTime)
         .add(timeInOrbit, 'days')
