@@ -26,8 +26,7 @@ class Add extends Component {
     });
   };
 
-  addNote = e => {
-    e.preventDefault();
+  addNote = () => {
     this.props.addNote(this.state.message);
     this.props.unBool();
   };
@@ -40,7 +39,7 @@ class Add extends Component {
     return (
       <div className={`Add ${this.state.animation && 'blackholeAnimation'}`}>
         <p>What's on your mind today, {this.props.user.username}?</p>
-        <form onSubmit={this.addNote}>
+        <form>
           <textarea
             onChange={this.handleChanges}
             name='message'
@@ -67,7 +66,7 @@ class Add extends Component {
           </div>
         </form>
         <div className='add-btns'>
-          <button className='to-orbit'>Send to Orbit</button>
+          <button onClick={() => this.addNote()} className='to-orbit'>Send to Orbit</button>
           <button
             className='to-hole'
             onClick={() => {

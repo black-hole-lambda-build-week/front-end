@@ -30,10 +30,6 @@ class Login extends Component {
     this.props.register(this.state.user);
     this.setState({
       ...this.state,
-      user: {
-        username: '',
-        password: ''
-      },
       registered: true
     });
   };
@@ -74,7 +70,7 @@ class Login extends Component {
               }
             >
               Not a Member Yet?
-            </span>
+           </span>
           </div>
           <img src={blackhole} className='blackhole' alt='' />
         </>
@@ -107,7 +103,7 @@ class Login extends Component {
               onClick={() => this.setState({ ...this.state, registered: true })}
             >
               Already Signed Up?
-            </span>
+           </span>
           </div>
           <img src={blackhole} className='blackhole' alt='' />
         </>
