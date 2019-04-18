@@ -80,3 +80,25 @@
         margin-right: 2%;
     }
 }
+
+.Add.blackholeAnimation {
+    animation-name: blackhole;
+    animation-duration: 6s;
+    animation-iteration-count: 1;
+}
+
+@keyframes blackhole {
+    0% {
+        transform: scale(1) rotate(0deg);
+        max-width: 90vw;
+    }
+
+    80% {
+        transform: scale(0) rotate(360deg);
+        font-size: 0;
+    }
+
+    100% {
+        transform: scale(0) rotate(360deg);
+    }
+}
