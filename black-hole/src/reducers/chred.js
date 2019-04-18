@@ -10,7 +10,8 @@ import {
     UPDATE_NOTE_FAILURE,
     DELETE_NOTE_START,
     DELETE_NOTE_SUCCESS,
-    DELETE_NOTE_FAILURE
+    DELETE_NOTE_FAILURE,
+    LOGOUT
 } from '../actions';
 
 const initialState = {
@@ -107,6 +108,11 @@ export const reducer = (state = initialState, action) => {
                 updatingNote: false,
                 error: action.payload
             };
+        case LOGOUT:
+            return {
+                ...state,
+                notes: []
+            }
         default:
             return state;
     }
