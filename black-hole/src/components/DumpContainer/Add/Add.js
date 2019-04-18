@@ -70,6 +70,7 @@ class Add extends Component {
           <button onClick={() => this.addNote()} className='to-orbit'>
             Send to Orbit
           </button>
+
           <button
             className='to-hole'
             onClick={() => {
