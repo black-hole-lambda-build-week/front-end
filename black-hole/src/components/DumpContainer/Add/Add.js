@@ -26,8 +26,7 @@ class Add extends Component {
     });
   };
 
-  addNote = e => {
-    e.preventDefault();
+  addNote = () => {
     this.props.addNote(this.state.message);
     this.props.unBool();
   };
@@ -67,9 +66,7 @@ class Add extends Component {
           </div>
         </form>
         <div className='add-btns'>
-          <button onClick={() => this.addNote()} className='to-orbit'>
-            Send to Orbit
-          </button>
+          <button onClick={() => this.addNote()} className='to-orbit'>Send to Orbit</button>
           <button
             className='to-hole'
             onClick={() => {

@@ -35,8 +35,7 @@ class Message extends Component {
         }, 6000)
     };
 
-    handleUpdate = e => {
-        e.preventDefault();
+    handleUpdate = () => {
         this.props.updateNote(this.props.dump.id, this.state.updateNote);
         this.setState({
             ...this.state,
@@ -53,7 +52,7 @@ class Message extends Component {
         console.log(this.state.animation)
         return (
             <div className={`Message ${this.state.animation && 'blackholeAnimation'}`}>
-                <form onSubmit={this.handleUpdate}>
+                <form>
                     {this.state.editing ? (
                         <textarea
                             type='text'
@@ -66,13 +65,9 @@ class Message extends Component {
                     ) : (
                             <span className='priorMessage'>{this.props.dump.message}</span>
                         )}
-                    <button
-                        className='to-orbit'
-                        style={{
-                            display: this.state.editing ? 'block' : 'none'
-                        }}
-                    >Send to Orbit</button>
-                    <div className='tio'>
+                    <div className='tio' style={{
+                        display: !this.state.editing && 'none'
+                    }}>
                         <span>Time in Orbit: </span>
                         <select
                             name='numberOfDays'
@@ -85,8 +80,7 @@ class Message extends Component {
                             <option value="4">4</option>
                             <option value="5">5</option>
                             <option value="6">6</option>
-                            <option value="7"
-                            >7</option>
+                            <option value="7">7</option>
                         </select>
                         <span> days</span>
                     </div>
@@ -105,6 +99,13 @@ class Message extends Component {
                 >
                     Edit Entry
         </button>
+                <button
+                    onClick={() => this.handleUpdate()}
+                    className='to-orbit'
+                    style={{
+                        display: this.state.editing ? 'block' : 'none'
+                    }}
+                >Send to Orbit</button>
                 <button
                     className='to-hole'
                     onClick={() => {
