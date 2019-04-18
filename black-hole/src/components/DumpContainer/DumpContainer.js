@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { connect } from 'react-redux';
 import Dump from './Dump';
 import './Dumps.scss';
@@ -32,6 +33,7 @@ class DumpContainer extends React.Component {
       <>
         <div className='DumpContainer'>
           <h1 className='dump-header'>In Orbit</h1>
+
           {this.props.dumps.map((dump, id) => (
             <Dump dump={dump} key={id} />
           ))}
@@ -44,6 +46,7 @@ class DumpContainer extends React.Component {
             />
           </form>
         </div>
+
         <img src={bg} alt='' className='background' />
       </>
     );

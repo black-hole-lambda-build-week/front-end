@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { toLogin, logout, toHome, login } from './actions';
 import './App.scss';
@@ -7,6 +8,7 @@ import Login from './components/Login';
 import Home from './components/Home';
 
 import logo from './images/logo_uncolored.png';
+import Message from './components/DumpContainer/Dump/Message';
 
 class App extends Component {
   componentDidMount() {
@@ -16,40 +18,43 @@ class App extends Component {
 
   render() {
     return (
-      <div className='App'>
-        <nav>
-          <img
-            className='logo'
-            src={logo}
-            onClick={() => this.props.toHome()}
-            alt='Logo'
-          />
-          <div className='user'>
-            {this.props.loggedIn && (
-              <>
-                <div className='nav-user'>
-                  <p className='log-username'>{this.props.user.username}</p>
-                  <p>|</p>
-                  <span className='log' onClick={() => this.props.logout()}>
-                    Log Out
-                  </span>
-                </div>
-              </>
-            )}
-          </div>
-        </nav>
-        <section>
-          {this.props.loggingIn || this.props.loggedIn ? (
-            this.props.loggedIn ? (
-              <DumpContainer />
+      <>
+        <Route exact path='/:id' component={Message} />
+        <div className='App'>
+          <nav>
+            <img
+              className='logo'
+              src={logo}
+              onClick={() => this.props.toHome()}
+              alt='Logo'
+            />
+            <div className='user'>
+              {this.props.loggedIn && (
+                <>
+                  <div className='nav-user'>
+                    <p className='log-username'>{this.props.user.username}</p>
+                    <p>|</p>
+                    <span className='log' onClick={() => this.props.logout()}>
+                      Log Out
+                    </span>
+                  </div>
+                </>
+              )}
+            </div>
+          </nav>
+          <section>
+            {this.props.loggingIn || this.props.loggedIn ? (
+              this.props.loggedIn ? (
+                <DumpContainer />
+              ) : (
+                <Login />
+              )
             ) : (
-              <Login />
-            )
-          ) : (
-            <Home />
-          )}
-        </section>
-      </div>
+              <Home />
+            )}
+          </section>
+        </div>
+      </>
     );
   }
 }
