@@ -22,7 +22,7 @@ class DumpContainer extends React.Component {
   };
 
   componentDidMount() {
-    this.props.fetchingData();
+    this.props.userId && this.props.fetchingData(this.props.userId);
   }
 
   handleChanges = e => {
@@ -79,24 +79,24 @@ class DumpContainer extends React.Component {
               onClick={() => {
                 this.state.message.bool
                   ? this.setState({
-                      ...this.state,
-                      message: {
-                        ...this.state.message,
-                        id: '',
-                        bool: false
-                      }
-                    })
+                    ...this.state,
+                    message: {
+                      ...this.state.message,
+                      id: '',
+                      bool: false
+                    }
+                  })
                   : this.setState({
-                      ...this.state,
-                      bool: !this.state.bool
-                    });
+                    ...this.state,
+                    bool: !this.state.bool
+                  });
               }}
             >
               {this.state.bool
                 ? '‹ Back'
                 : this.state.message.bool
-                ? '‹ Back'
-                : '+ Create a message'}
+                  ? '‹ Back'
+                  : '+ Create a message'}
             </p>
           </div>
           {this.state.bool ? (
@@ -105,18 +105,18 @@ class DumpContainer extends React.Component {
             <Message
               dump={
                 this.props.dumps[
-                  this.props.dumps.findIndex(
-                    dump => dump.id === this.state.message.id
-                  )
+                this.props.dumps.findIndex(
+                  dump => dump.id === this.state.message.id
+                )
                 ]
               }
               unMessage={this.unMessage}
             />
           ) : (
-            this.props.dumps.map((dump, id) => (
-              <Dump dump={dump} toMessage={this.toMessage} key={id} />
-            ))
-          )}
+                this.props.dumps.map((dump, id) => (
+                  <Dump dump={dump} toMessage={this.toMessage} key={id} />
+                ))
+              )}
         </div>
         <img src={stars} alt='' className='stars' />
         <img
@@ -131,7 +131,8 @@ class DumpContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    dumps: state.note.notes
+    dumps: state.note.notes,
+    userId: state.login.userId
   };
 };
 

@@ -23,8 +23,6 @@ export const
 
 const URL = 'https://blackhole-app.herokuapp.com';
 
-const userId = localStorage.getItem('userId') && localStorage.getItem('userId');
-
 export const register = creds => dispatch => {
     auth()
         .post('https://blackhole-app.herokuapp.com/register', creds)
@@ -47,10 +45,11 @@ export const login = creds => dispatch => {
     auth()
         .post('https://blackhole-app.herokuapp.com/login', creds)
         .then(res => {
+            console.log('login', res.data)
             localStorage.setItem('user', JSON.stringify(creds))
             dispatch({
                 type: LOGIN_SUCCESS,
-                payload: res.data.payload
+                payload: res.data
             })
             localStorage.setItem('userId', res.data.id)
         })
@@ -72,7 +71,7 @@ export const logout = () => dispatch => {
     })
 }
 
-export const fetchingData = () => dispatch => {
+export const fetchingData = userId => dispatch => {
     dispatch({ type: FETCH_DATA_START });
     return auth()
         .get(`${URL}/orbit/users/${userId}`) //make sure this link gets filled in

@@ -11,7 +11,7 @@ class Add extends Component {
       message: '',
       expirationDate: moment().format('YYYY/MM/DD'),
       numberOfDays: 7,
-      user_id: localStorage.getItem('userId')
+      user_id: this.props.userId
     },
     animation: false
   };
@@ -89,7 +89,8 @@ class Add extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.login.user
+    user: state.login.user,
+    userId: state.login.userId
   };
 };
 

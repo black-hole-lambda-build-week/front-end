@@ -7,7 +7,8 @@ const initialState = {
     dumps: [],
     globalDumps: [],
     user: {},
-    route: false
+    route: false,
+    userId: ''
 }
 
 export default (state = initialState, action) => {
@@ -21,7 +22,8 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 loggedIn: true,
-                user: JSON.parse(localStorage.getItem('user'))
+                user: JSON.parse(localStorage.getItem('user')),
+                userId: action.payload.id
             }
         case LOGIN_FAILURE:
             return {
