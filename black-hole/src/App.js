@@ -43,11 +43,11 @@ class App extends Component {
             this.props.loggedIn ? (
               <DumpContainer />
             ) : (
-              <Login />
-            )
+                <Login />
+              )
           ) : (
-            <Home />
-          )}
+              <Home />
+            )}
         </section>
       </div>
     );
