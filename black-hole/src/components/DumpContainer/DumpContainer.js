@@ -8,6 +8,7 @@ import './Dumps.scss';
 import { fetchingData, addNote } from '../../actions';
 
 import blackhole from '../../images/animator.gif';
+import bg from '../../images/animator.gif';
 import stars from '../../images/stars1.png';
 
 class DumpContainer extends React.Component {
@@ -89,9 +90,9 @@ class DumpContainer extends React.Component {
               }}
             >
               {this.state.bool
-                ? 'Back'
+                ? '‹ Back'
                 : this.state.message.bool
-                ? 'Back'
+                ? '‹ Back'
                 : '+ Create a message'}
             </p>
           </div>
@@ -115,7 +116,11 @@ class DumpContainer extends React.Component {
           )}
         </div>
         <img src={stars} alt='' className='stars' />
-        <img src={blackhole} alt='' className='background' />
+        <img
+          src={this.state.bool ? blackhole : bg}
+          alt=''
+          className='background'
+        />
       </>
     );
   }
