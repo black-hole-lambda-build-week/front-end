@@ -76,13 +76,14 @@ class Login extends Component {
               Not a Member Yet?
             </span>
           </div>
-          <img src={blackhole} className='blackhole' />
+          <img src={blackhole} className='blackhole' alt='' />
         </>
       );
     } else {
       return (
         <>
           <div className='Login'>
+            <img src={logo} alt='logo' className='logo' />
             <h2>Register</h2>
             <form onSubmit={this.register}>
               <label>Username:</label>
@@ -102,13 +103,13 @@ class Login extends Component {
               <button>Submit</button>
             </form>
             <span
-              className='log'
+              className='member-yet'
               onClick={() => this.setState({ ...this.state, registered: true })}
             >
               Already Signed Up?
             </span>
           </div>
-          <img src={blackhole} className='blackhole' />
+          <img src={blackhole} className='blackhole' alt='' />
         </>
       );
     }

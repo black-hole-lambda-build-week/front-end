@@ -19,10 +19,10 @@ const tokenizer = store => next => action => {
 const store = createStore(reducer, applyMiddleware(tokenizer, thunk));
 
 ReactDOM.render(
-  <Router>
-    <Provider store={store}>
+  <Provider store={store}>
+    <Router>
       <App />
-    </Provider>
-  </Router>,
+    </Router>
+  </Provider>,
   document.getElementById('root')
 );

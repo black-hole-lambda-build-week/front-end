@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import { connect } from 'react-redux';
 import { updateNote, deleteNote } from '../../../actions';
 import { NavLink } from 'react-router-dom';
@@ -102,3 +103,25 @@ export default connect(
   mapStateToProps,
   { updateNote, deleteNote }
 )(Dump);
+=======
+import moment from 'moment';
+
+export default props => {
+    console.log(props)
+    let filter = props.dump.message.replace(/([fsc][uh][cni][kt])/ig, '****').replace(/([b][i][t][c][h])/ig, '*****'),
+        timeLeft = (originalTime, timeInOrbit) => {
+            return moment(originalTime).add(timeInOrbit, 'days').fromNow(true)
+        }
+
+    return (
+
+        <div className='note' onClick={() => props.toMessage(props.dump.id)}>
+            <p className='message'>{filter}
+            </p>
+            <p className='time-left'>
+                Time left in orbit: {timeLeft(props.dump.expirationDate, props.dump.numberOfDays)}
+            </p>
+        </div>
+    );
+}
+>>>>>>> c9ec448f26d8bc2709f2228b2bdb8455be4b2c68

@@ -8275,6 +8275,11 @@ react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.4.tgz#90f336a68c3a29a096a3d648ab80e87ec61482a2"
   integrity sha512-PVadd+WaUDOAciICm/J1waJaSvgq+4rHE/K70j0PFqKhkTBsPv/82UGQJNXAngz1fOQLLxI6z1sEDmJDQhCTAA==
 
+react-moment@^0.9.2:
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/react-moment/-/react-moment-0.9.2.tgz#1cdc6ed02f1735282282129edf0f607f420df039"
+  integrity sha512-jpKIEvcEOTSa4RXWTjDlvja7sN+ee5Gyk5ZKa704FZxE01OxmKIpq9GUliqTrAgdDYJJUQsnqQamczn0TN+DTg==
+
 react-redux@^7.0.2:
   version "7.0.2"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.0.2.tgz#34b280a3482aaf60e7d4a504b1295165cbe6b86a"

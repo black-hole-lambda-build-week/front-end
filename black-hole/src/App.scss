@@ -1,62 +1,58 @@
 .App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  width: 96%;
-  margin: 1% auto;
-  font-size: 1.5rem;
-
-  nav {
-    position: relative;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    width: 95%;
-    height: 50px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    z-index: 999999;
-    position: fixed;
+    justify-content: flex-start;
+    width: 96%;
+    margin: 1% auto;
+    font-size: 1.5rem;
 
-    .logo {
-      width: 8%;
+    nav {
+        position: relative;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 95%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 999999;
+        position: fixed;
 
-      &:hover {
+        .logo {
+            width: 8%;
+        }
+    }
+
+    .user {
+        width: 20%;
+    }
+
+    .nav-user {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .log {
+        margin: 0;
+        padding-bottom: 0;
         cursor: pointer;
-      }
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
     }
-  }
 
-  .user {
-    width: 20%;
-  }
-
-  .nav-user {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-
-  .log {
-    margin: 0;
-    padding-bottom: 0;
-    cursor: pointer;
-
-    p {
-      margin: 0;
-      padding: 0;
+    .log:hover {
+        text-decoration: underline;
     }
-  }
 
-  .log:hover {
-    text-decoration: underline;
-  }
-
-  section {
-    width: 100%;
-    padding: 0 0 25px;
-  }
+    section {
+        width: 100%;
+        padding: 0 0 25px;
+    }
 }
