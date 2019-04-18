@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Dump from './Dump';
 import Add from './Add';
-import Message from './Dump/Message';
+import Message from './Dump/Message/Message';
 import './Dumps.scss';
 import { fetchingData, addNote } from '../../actions';
 
@@ -61,38 +61,40 @@ class DumpContainer extends React.Component {
     return (
       <>
         <div className='DumpContainer'>
-          <h1
-            className='dump-header'
-            style={{
-              display: this.state.bool && 'none'
-            }}
-          >
-            In Orbit
-          </h1>
-          <p
-            className='add'
-            onClick={() => {
-              this.state.message.bool
-                ? this.setState({
-                    ...this.state,
-                    message: {
-                      ...this.state.message,
-                      id: '',
-                      bool: false
-                    }
-                  })
-                : this.setState({
-                    ...this.state,
-                    bool: !this.state.bool
-                  });
-            }}
-          >
-            {this.state.bool
-              ? 'Cancel'
-              : this.state.message.bool
-              ? 'Cancel'
-              : '+ Create a message'}
-          </p>
+          <div className='orbit-header'>
+            <h1
+              className='dump-header'
+              style={{
+                display: this.state.bool && 'none'
+              }}
+            >
+              In Orbit
+            </h1>
+            <p
+              className='add'
+              onClick={() => {
+                this.state.message.bool
+                  ? this.setState({
+                      ...this.state,
+                      message: {
+                        ...this.state.message,
+                        id: '',
+                        bool: false
+                      }
+                    })
+                  : this.setState({
+                      ...this.state,
+                      bool: !this.state.bool
+                    });
+              }}
+            >
+              {this.state.bool
+                ? 'Back'
+                : this.state.message.bool
+                ? 'Back'
+                : '+ Create a message'}
+            </p>
+          </div>
           {this.state.bool ? (
             <Add unBool={this.unBool} />
           ) : this.state.message.bool ? (
