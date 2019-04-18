@@ -2,11 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 15%;
-
-  .planet {
-    width: 15%;
-  }
+  width: 50%;
 }
 
 .DumpContainer {
@@ -15,7 +11,7 @@
   align-items: center;
   position: relative;
   z-index: 500;
-  margin-top: 2%;
+  margin-top: 5%;
 
   .orbit-header {
     width: 80%;
@@ -50,7 +46,7 @@
   .dump-header {
     color: whitesmoke;
     text-transform: uppercase;
-    font-size: 4rem;
+    font-size: 3vw;
     margin: 0;
     letter-spacing: 2px;
     user-select: none;
