@@ -38,48 +38,50 @@ class Add extends Component {
 
   render() {
     return (
-      <div className={`Add ${this.state.animation && 'blackholeAnimation'}`}>
-        <p>What's on your mind today, {this.props.user.username}?</p>
-        <form onSubmit={this.addNote}>
-          <textarea
-            onChange={this.handleChanges}
-            name='message'
-            value={this.state.message.message}
-            style={{ resize: 'none' }}
-            placeholder='THIS SOME BULL**** HOW YOU GON TELL ME HOW TA LIVE MY LIFE AFTER YOU WALK IN HERE AND LITERALLY SLAP ME IN THE FACE WITH YOUR WORDS'
-          />
-          <div className='tio'>
-            <span>Time in Orbit: </span>
-            <select
+      <div className='add-container'>
+        <div className={`Add ${this.state.animation && 'blackholeAnimation'}`}>
+          <p>What's on your mind today, {this.props.user.username}?</p>
+          <form onSubmit={this.addNote}>
+            <textarea
               onChange={this.handleChanges}
-              name='numberOfDays'
-              defaultValue='7'
+              name='message'
+              value={this.state.message.message}
+              style={{ resize: 'none' }}
+              placeholder='THIS SOME BULL**** HOW YOU GON TELL ME HOW TA LIVE MY LIFE AFTER YOU WALK IN HERE AND LITERALLY SLAP ME IN THE FACE WITH YOUR WORDS'
+            />
+            <div className='tio'>
+              <span>Time in Orbit: </span>
+              <select
+                onChange={this.handleChanges}
+                name='numberOfDays'
+                defaultValue='7'
+              >
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+                <option value='5'>5</option>
+                <option value='6'>6</option>
+                <option value='7'>7</option>
+              </select>
+              <span> days</span>
+            </div>
+          </form>
+          <div className='add-btns'>
+            <button className='to-orbit'>Send to Orbit</button>
+            <button
+              className='to-hole'
+              onClick={() => {
+                this.setState({
+                  ...this.state,
+                  animation: true
+                });
+                this.toBlackHole();
+              }}
             >
-              <option value='1'>1</option>
-              <option value='2'>2</option>
-              <option value='3'>3</option>
-              <option value='4'>4</option>
-              <option value='5'>5</option>
-              <option value='6'>6</option>
-              <option value='7'>7</option>
-            </select>
-            <span> days</span>
+              Send to Black Hole
+            </button>
           </div>
-        </form>
-        <div className='add-btns'>
-          <button className='to-orbit'>Send to Orbit</button>
-          <button
-            className='to-hole'
-            onClick={() => {
-              this.setState({
-                ...this.state,
-                animation: true
-              });
-              this.toBlackHole();
-            }}
-          >
-            Send to Black Hole
-          </button>
         </div>
       </div>
     );

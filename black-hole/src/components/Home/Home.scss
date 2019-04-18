@@ -1,62 +1,62 @@
 .Home {
-    position: absolute;
-    z-index: 999;
-    right: 0;
-    top: 0;
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.89);
-    backdrop-filter: blur(15px);
-    border-left: 2px solid #5f14ff;
+  position: absolute;
+  z-index: 999;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.89);
+  backdrop-filter: blur(15px);
+  border-left: 2px solid #5f14ff;
 
-    .home-logo {
-        width: 35%;
-    }
+  .home-logo {
+    width: 35%;
+  }
 
-    .home-caption {
-        color: white;
-        width: 80%;
-        padding: 2%;
-        font-size: 1.8rem;
-    }
+  .home-caption {
+    color: white;
+    width: 80%;
+    padding: 2%;
+    font-size: 1.8rem;
+  }
 
-    .bottom-caption::after {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 1px;
-        background-color: rgba(255, 255, 255, 0.199);
-        margin-top: 5%;
-    }
+  .bottom-caption::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.199);
+    margin-top: 5%;
+  }
 
-    .login-btn {
-        width: 80%;
-        padding: 18px;
-        border-radius: 5px;
-        background: linear-gradient(90deg, #5f14ff 0%, #6c12dd 100%);
-        border: none;
-        color: white;
-        transition: 0.2s ease-in-out;
-        cursor: pointer;
-    }
+  .login-btn {
+    width: 80%;
+    padding: 18px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #5f14ff 0%, #6c12dd 100%);
+    border: none;
+    color: white;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+  }
 
-    .login-btn:hover {
-        transition: 0.2s ease-in-out;
-        transform: scale(0.98);
-    }
+  .login-btn:hover {
+    transition: 0.2s ease-in-out;
+    transform: scale(0.98);
+  }
 }
 
 .blackhole {
-    position: absolute;
-    filter: contrast(130%);
-    z-index: 10;
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    top: 0;
-    left: 0;
+  position: absolute;
+  filter: contrast(130%);
+  z-index: 10;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  top: 0;
+  left: 0;
 }
