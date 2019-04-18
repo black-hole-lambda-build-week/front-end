@@ -29,14 +29,10 @@ class Message extends Component {
     };
 
     deleteNote = () => {
-        this.setState({
-            ...this.state,
-            animation: true
-        })
         setTimeout(() => {
             this.props.deleteNote(this.props.dump.id)
             this.props.unMessage()
-        }, 5000)
+        }, 6000)
     };
 
     handleUpdate = e => {
@@ -78,14 +74,19 @@ class Message extends Component {
                     >Send to Orbit</button>
                     <div className='tio'>
                         <span>Time in Orbit: </span>
-                        <select name='numberOfDays'>
+                        <select
+                            name='numberOfDays'
+                            defaultValue='7'
+                            onChange={this.handleInput}
+                        >
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
                             <option value="6">6</option>
-                            <option value="7" defaultValue selected>7</option>
+                            <option value="7"
+                            >7</option>
                         </select>
                         <span> days</span>
                     </div>
@@ -106,7 +107,13 @@ class Message extends Component {
         </button>
                 <button
                     className='to-hole'
-                    onClick={() => this.deleteNote()}
+                    onClick={() => {
+                        this.setState({
+                            ...this.state,
+                            animation: true
+                        })
+                        this.deleteNote()
+                    }}
                 >Send to Black Hole</button>
             </div>
         )
