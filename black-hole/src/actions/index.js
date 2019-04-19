@@ -67,6 +67,7 @@ export const toHome = () => dispatch => {
 
 export const logout = () => dispatch => {
     localStorage.clear()
+    localStorage.setItem('bhlog', 'something')
     dispatch({
         type: LOGOUT
     })

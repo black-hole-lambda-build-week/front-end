@@ -39,15 +39,12 @@ class App extends Component {
           </div>
         </nav>
         <section>
-          {this.props.loggingIn || this.props.loggedIn ? (
-            this.props.loggedIn ? (
-              <DumpContainer />
-            ) : (
-                <Login />
-              )
-          ) : (
-              <Home />
-            )}
+          {this.props.loggingIn || this.props.loggedIn ?
+            this.props.loggedIn ?
+              <DumpContainer /> :
+              <Login /> :
+            <Home />
+          }
         </section>
       </div>
     );

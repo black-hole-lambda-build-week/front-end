@@ -12,7 +12,11 @@ class Login extends Component {
       username: '',
       password: ''
     },
-    registered: localStorage.getItem('user') ? true : false
+    regiUser: {
+      username: '',
+      password: ''
+    },
+    registered: localStorage.getItem('bhlog') ? true : false
   };
 
   handleChanges = e => {
@@ -25,11 +29,25 @@ class Login extends Component {
     });
   };
 
-  register = e => {
-    e.preventDefault();
-    this.props.register(this.state.user);
+  handleRegiChanges = e => {
     this.setState({
       ...this.state,
+      regiUser: {
+        ...this.state.regiUser,
+        [e.target.name]: e.target.value
+      }
+    });
+  };
+
+  register = e => {
+    e.preventDefault();
+    this.props.register(this.state.regiUser);
+    this.setState({
+      ...this.state,
+      regiUser: {
+        username: '',
+        password: ''
+      },
       registered: true
     });
   };
@@ -37,6 +55,13 @@ class Login extends Component {
   login = e => {
     e.preventDefault();
     this.props.login(this.state.user);
+    this.setState({
+      ...this.state,
+      user: {
+        username: '',
+        password: ''
+      }
+    })
   };
 
   render() {
@@ -50,14 +75,14 @@ class Login extends Component {
               <label>Username:</label>
               <input
                 name='username'
-                value={this.state.username}
+                value={this.state.user.username}
                 onChange={this.handleChanges}
                 type='text'
               />
               <label>Password:</label>
               <input
                 name='password'
-                value={this.state.password}
+                value={this.state.user.password}
                 onChange={this.handleChanges}
                 type='password'
               />
@@ -66,7 +91,14 @@ class Login extends Component {
             <span
               className='member-yet'
               onClick={() =>
-                this.setState({ ...this.state, registered: false })
+                this.setState({
+                  ...this.state,
+                  user: {
+                    username: '',
+                    password: ''
+                  },
+                  registered: false
+                })
               }
             >
               Not a Member Yet?
@@ -85,22 +117,29 @@ class Login extends Component {
               <label>Username:</label>
               <input
                 name='username'
-                value={this.state.username}
-                onChange={this.handleChanges}
+                value={this.state.regiUser.username}
+                onChange={this.handleRegiChanges}
                 type='text'
               />
               <label>Password:</label>
               <input
                 name='password'
-                value={this.state.password}
-                onChange={this.handleChanges}
+                value={this.state.regiUser.password}
+                onChange={this.handleRegiChanges}
                 type='password'
               />
               <button>Submit</button>
             </form>
             <span
               className='member-yet'
-              onClick={() => this.setState({ ...this.state, registered: true })}
+              onClick={() => this.setState({
+                ...this.state,
+                regiUser: {
+                  username: '',
+                  password: ''
+                },
+                registered: true
+              })}
             >
               Already Signed Up?
            </span>

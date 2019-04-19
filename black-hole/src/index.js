@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import thunk from 'redux-thunk';
@@ -11,7 +10,7 @@ import { LOGIN_SUCCESS } from './actions';
 
 const tokenizer = store => next => action => {
   if (action.type === LOGIN_SUCCESS) {
-    localStorage.setItem('token', action.payload);
+    localStorage.setItem('token', JSON.stringify(action.payload));
   }
   next(action);
 };
@@ -20,9 +19,7 @@ const store = createStore(reducer, applyMiddleware(tokenizer, thunk));
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
-      <App />
-    </Router>
+    <App />
   </Provider>,
   document.getElementById('root')
 );
