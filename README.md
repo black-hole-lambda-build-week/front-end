@@ -16,12 +16,13 @@
 
 |Folder name|File Name|Description|
 |---|---|---|
-|DumpContainer|`DumpContainer.js`| DumpContainer is a statefull class component that is the heart of the application, and deals with the logic of switching what's viewed|
+|App|`App.js`|Container for entire app|
 |Home|`Home.js`|Home folders index.js file is the main screen that users first see before logging in|
+|Login|`login.js`|Login folders login.js file will conditionally render a login or register form depending on if you've registered or not before|
+|DumpContainer|`DumpContainer.js`| DumpContainer is a statefull class component that is the heart of the application, and deals with the logic of switching what's viewed|
 |Dump|`Dump.js`|The dump.js file displays each individual text, along with abilities|
 |Add|`Add.js`|The add.js file within Add folder allows for users to create new instances of a post to send to orbit|
 |Message|`Message.js`|The Message.js file conditionaly renders each individual message, and allows you to update, delete, or send back to orbit|
-|Login|`login.js`|Login folders login.js file will conditionally render a login or register form depending on if you've registered or not before|
 
 ## Reducer folder
 
