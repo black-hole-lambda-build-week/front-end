@@ -57,6 +57,10 @@
         margin: 0;
         letter-spacing: 2px;
         user-select: none;
+
+        @media (max-width: 500px) {
+            font-size: 2rem;
+        }
     }
 
     .note {
