@@ -1,60 +1,72 @@
 .App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  width: 96%;
-  margin: 1% auto;
-  font-size: 1.5rem;
-
-  nav {
-    position: relative;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 1% 2%;
-    width: 95%;
-    height: 50px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    z-index: 999999;
-    position: fixed;
-    background: black;
+    justify-content: flex-start;
+    width: 96%;
+    margin: 1% auto;
+    font-size: 1.5rem;
 
-    .logo {
-      width: 10vw;
+    nav {
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 1% 2%;
+        width: 95%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 999999;
+        position: fixed;
+        background: black;
+
+        .logo {
+            width: 10vw;
+
+            @media (max-width: 500px) {
+                width: 20%;
+            }
+        }
     }
-  }
 
-  .user {
-    width: 20%;
-  }
+    .user {
+        width: 20%;
 
-  .nav-user {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-
-  .log {
-    margin: 0;
-    padding-bottom: 0;
-    cursor: pointer;
-
-    p {
-      margin: 0;
-      padding: 0;
+        @media (max-width: 500px) {
+            margin-right: 15px;
+        }
     }
-  }
 
-  .log:hover {
-    text-decoration: underline;
-  }
+    .nav-user {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-evenly;
 
-  section {
-    width: 100%;
-    height: 95vh;
-  }
+        @media (max-width: 500px) {
+            width: max-content;
+        }
+    }
+
+    .log {
+        margin: 0;
+        padding-bottom: 0;
+        cursor: pointer;
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    .log:hover {
+        text-decoration: underline;
+    }
+
+    section {
+        width: 100%;
+        height: 95vh;
+    }
 }

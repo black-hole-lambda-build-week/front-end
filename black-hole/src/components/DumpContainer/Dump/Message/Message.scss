@@ -1,148 +1,179 @@
 .message-container {
-  margin-top: 4%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  transition: 0.2s ease-in-out;
+    margin-top: 4%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transition: 0.2s ease-in-out;
 }
 
 .Message {
-  margin-top: -3%;
-  width: 40%;
-  min-height: 45vh;
-  min-width: 40vw;
-  background: #000000;
-  border: 2px solid #5f14ff;
-  padding: 0.8% 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 5px;
-  box-shadow: 0px 0px 30px #5e14ff49;
-  transition: 0.2s ease-in-out;
-
-  .edit-btns-container {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  button {
-    background: #5f14ff;
-    border: none;
-    width: 12vw;
-    font-weight: 600;
-    padding: 12px 10px;
-    margin-left: 14px;
-    border-radius: 5px;
-    color: whitesmoke;
-    cursor: pointer;
-    font-size: 1.1rem;
-    transition: 0.1s ease-out;
-
-    &:hover {
-      box-shadow: 0px 0px 10px #5100ffd0;
-    }
-  }
-
-  form {
-    width: 100%;
-    max-height: 38vh;
-    overflow-y: scroll;
+    margin-top: -3%;
+    width: 40%;
+    min-height: 45vh;
+    min-width: 40vw;
+    background: #000000;
+    border: 2px solid #5f14ff;
+    padding: 0.8% 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    letter-spacing: 1.2px;
-    font-size: 1.5rem;
+    justify-content: space-between;
+    border-radius: 5px;
+    box-shadow: 0px 0px 30px #5e14ff49;
+    transition: 0.2s ease-in-out;
 
-    textarea {
-      background: none;
-      border: none;
-      width: 95%;
-      color: whitesmoke;
-      margin: 5px 10px 20px;
-      height: 330px;
-      transition: 0.2s ease-out;
-      border-radius: 5px;
-      outline: none;
+    @media (max-width: 500px) {
+        width: 100%;
+        margin: 0;
     }
 
-    textarea::-webkit-scrollbar {
-      display: none;
+    .edit-btns-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        @media (max-width: 500px) {
+            flex-direction: column;
+            width: 95%;
+        }
     }
 
-    .tio {
-      justify-self: center;
-      margin-bottom: -22px;
-
-      select {
-        background: none;
+    button {
+        background: #5f14ff;
         border: none;
-        border-bottom: 1px solid #5f14ff;
+        width: 12vw;
+        font-weight: 600;
+        padding: 12px 10px;
+        margin-left: 14px;
+        border-radius: 5px;
         color: whitesmoke;
-        outline: none;
-        transition: 0.5s ease-out;
-        align-self: center;
+        cursor: pointer;
+        font-size: 1.1rem;
+        transition: 0.1s ease-out;
+
+        @media (max-width: 500px) {
+            width: 80%;
+            margin: 0 auto 10px;
+        }
 
         &:hover {
-          background: black;
+            box-shadow: 0px 0px 10px #5100ffd0;
         }
-      }
     }
 
-    .to-orbit {
-      align-self: flex-start;
-      margin-bottom: -22px;
-      margin-left: 2%;
+    form {
+        width: 100%;
+        max-height: 38vh;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        letter-spacing: 1.2px;
+        font-size: 1.5rem;
+
+        textarea {
+            background: none;
+            border: none;
+            width: 95%;
+            color: whitesmoke;
+            margin: 5px 10px 20px;
+            height: 330px;
+            transition: 0.2s ease-out;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        textarea::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tio {
+            justify-self: center;
+            margin-bottom: -22px;
+
+            @media (max-width: 500px) {
+                width: 100%;
+                margin: 0 0 10px;
+                text-align: center;
+            }
+
+            select {
+                background: none;
+                border: none;
+                border-bottom: 1px solid #5f14ff;
+                color: whitesmoke;
+                outline: none;
+                transition: 0.5s ease-out;
+                align-self: center;
+
+                &:hover {
+                    background: black;
+                }
+            }
+        }
+
+        .to-orbit {
+            align-self: flex-start;
+            margin-bottom: -22px;
+            margin-left: 2%;
+
+            @media (max-width: 500px) {
+                width: 80%;
+                margin: 0 auto;
+            }
+        }
     }
-  }
 
-  form::-webkit-scrollbar {
-    display: none;
-  }
+    form::-webkit-scrollbar {
+        display: none;
+    }
 
-  .priorMessage {
-    padding: 0 2%;
-    line-height: 25px;
-    padding-bottom: 2%;
-  }
+    .priorMessage {
+        padding: 0 2%;
+        line-height: 25px;
+        padding-bottom: 2%;
+    }
 
-  .to-hole {
-    align-self: flex-end;
-    margin-right: 2%;
-  }
+    .to-hole {
+        align-self: flex-end;
+        margin-right: 2%;
+
+        @media (max-width: 500px) {
+            width: 80%;
+            margin: 0 auto;
+        }
+    }
 }
 
 .to-orbit {
-  align-self: flex-start;
-  margin-bottom: -22px;
-  margin-left: 2%;
+    align-self: flex-start;
+    margin-bottom: -22px;
+    margin-left: 2%;
 }
 
 .to-hole {
-  align-self: flex-end;
-  margin-right: 2%;
+    align-self: flex-end;
+    margin-right: 2%;
 }
 
 .Message.blackholeAnimation {
-  animation-name: blackhole;
-  animation-duration: 6s;
-  animation-iteration-count: 1;
+    animation-name: blackhole;
+    animation-duration: 6s;
+    animation-iteration-count: 1;
 }
 
 @keyframes blackhole {
-  0% {
-    transform: scale(1) rotate(0deg);
-  }
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
 
-  80% {
-    transform: scale(0) rotate(360deg);
-    font-size: 0;
-  }
+    80% {
+        transform: scale(0) rotate(360deg);
+        font-size: 0;
+    }
 
-  100% {
-    transform: scale(0) rotate(360deg);
-  }
+    100% {
+        transform: scale(0) rotate(360deg);
+    }
 }
