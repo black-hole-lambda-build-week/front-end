@@ -6,11 +6,15 @@ import Add from './Add';
 import Message from './Dump/Message/Message';
 import './Dumps.scss';
 import { fetchingData, addNote } from '../../actions';
+import moment from 'moment'
 
 import blackhole from '../../images/animator2.gif';
 import bg from '../../images/animator2.gif';
 import stars from '../../images/stars1.png';
-import planet from '../../images/planet.png';
+
+const timeLeft = (originalTime, timeInOrbit) => {
+  return moment(originalTime).add(timeInOrbit, 'days').fromNow(true);
+}
 
 class DumpContainer extends React.Component {
   state = {
@@ -113,9 +117,11 @@ class DumpContainer extends React.Component {
               unMessage={this.unMessage}
             />
           ) : (
-                this.props.dumps.map((dump, id) => (
-                  <Dump dump={dump} toMessage={this.toMessage} key={id} />
-                ))
+                this.props.dumps
+                  .filter(dump => timeLeft(dump.expirationDate, dump.numberOfDays).split('')[0] > 0)
+                  .map((dump, id) => (
+                    <Dump dump={dump} toMessage={this.toMessage} key={id} />
+                  ))
               )}
         </div>
         <img src={stars} alt='' className='stars' />

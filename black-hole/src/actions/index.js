@@ -66,6 +66,7 @@ export const toHome = () => dispatch => {
 }
 
 export const logout = () => dispatch => {
+    localStorage.clear()
     dispatch({
         type: LOGOUT
     })
