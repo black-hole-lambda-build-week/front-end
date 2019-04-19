@@ -4,7 +4,7 @@ import { toLogin } from '../../actions';
 import './Home.scss';
 
 import logo from '../../images/logo_uncolored.png';
-import blackhole from '../../images/animator.gif';
+import blackhole from '../../images/animator2.gif';
 
 const Home = props => {
   return (
