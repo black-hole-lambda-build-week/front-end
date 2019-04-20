@@ -7,10 +7,13 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducers/combo';
 import { LOGIN_SUCCESS } from './actions';
+import Cookies from 'js-cookie'
 
 const tokenizer = store => next => action => {
   if (action.type === LOGIN_SUCCESS) {
-    localStorage.setItem('token', JSON.stringify(action.payload));
+    !window.localStorage ?
+      Cookies.set('token', `${action.payload}`) :
+      localStorage.setItem('token', JSON.stringify(action.payload));
   }
   next(action);
 };

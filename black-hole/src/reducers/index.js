@@ -8,7 +8,8 @@ const initialState = {
     globalDumps: [],
     user: {},
     route: false,
-    userId: ''
+    userId: '',
+    token: ''
 }
 
 export default (state = initialState, action) => {
