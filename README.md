@@ -3,6 +3,7 @@
 
   When A user goes to the login screen, the user has the option to register if they are new, or login if they have already gone through the process of registering. The user will be greeted by a list of all their venting posts that they have written. The user will be able to see on each post how much time their post has left before being sucked into the blackhole. 
   The frontend portion of the BlackHole project is using react to create the project and redux to manage and update the state. To render different components to the screen, we are conditionaly rendering components.
+  - Implemented the use of `cookies` for browsers that don't allow the use of `localStorage`
 
 
 ## Action folder
