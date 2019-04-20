@@ -10,6 +10,7 @@ import logo from './images/logo_uncolored.png';
 
 class App extends Component {
   componentDidMount() {
+    localStorage.removeItem('token')
     localStorage.getItem('user') &&
       this.props.login(JSON.parse(localStorage.getItem('user')));
   }
