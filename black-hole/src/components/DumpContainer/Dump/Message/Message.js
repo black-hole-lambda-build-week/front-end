@@ -11,7 +11,7 @@ class Message extends Component {
       editing: false,
       animation: false,
       updateNote: {
-        message: '',
+        message: this.props.dump.message,
         expirationDate: moment().format('YYYY/MM/DD'),
         numberOfDays: 7
       }
@@ -68,8 +68,8 @@ class Message extends Component {
                 {this.props.dump.message}
               </textarea>
             ) : (
-              <span className='priorMessage'>{this.props.dump.message}</span>
-            )}
+                <span className='priorMessage'>{this.props.dump.message}</span>
+              )}
             <div
               className='tio'
               style={{
